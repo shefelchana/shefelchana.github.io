@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shefelchana.github.io/genealogy-guide-ru/sitemap.xml
