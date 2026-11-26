@@ -599,6 +599,17 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .wish figcaption{margin-top:10px;font-size:14px;font-weight:500;color:var(--olive)}
 .wall-empty{text-align:center;font-size:16px;opacity:.75;padding:20px;border:2px dashed #d9c9a3;border-radius:16px}
 .wall-more-p{text-align:center;margin:14px 0 0!important}
+
+/* v9: stronger buttons */
+.btn,.end .btn,.hero .btn{display:inline-flex!important;align-items:center;justify-content:center;gap:8px;background:var(--olive)!important;background-image:none!important;color:#fffaf0!important;font:500 18px/1.2 var(--body)!important;letter-spacing:0!important;padding:16px 30px!important;border-radius:999px!important;border:0!important;box-shadow:0 5px 0 #3f4a1b,0 10px 22px rgba(63,74,27,.25)!important;text-decoration:none!important;transition:transform .12s,box-shadow .12s;min-width:220px}
+.btn:active{transform:translateY(3px)!important;box-shadow:0 2px 0 #3f4a1b,0 4px 10px rgba(63,74,27,.25)!important}
+.btn.big{font-size:20px!important;padding:19px 38px!important;min-width:260px;animation:btnpulse 2.4s ease-in-out infinite}
+@keyframes btnpulse{0%,100%{box-shadow:0 5px 0 #3f4a1b,0 0 0 0 rgba(111,127,46,.45)}50%{box-shadow:0 5px 0 #3f4a1b,0 0 0 12px rgba(111,127,46,0)}}
+@media (prefers-reduced-motion:reduce){.btn.big{animation:none}}
+.mbtn{background:var(--olive)!important;color:#fffaf0!important;border:0!important;font-weight:500!important;font-size:17px!important;padding:15px 26px!important;border-radius:999px!important;box-shadow:0 4px 0 #3f4a1b!important;min-width:230px}
+.mbtn:nth-child(2){background:#fffaf0!important;color:var(--olive)!important;border:2px solid var(--olive)!important;box-shadow:0 4px 0 #c9b98f!important}
+.mbtn[aria-pressed="true"]{outline:3px solid #e3a33f;outline-offset:3px}
+.calbtns .chip{background:#fffaf0!important;border:2px solid var(--olive)!important;color:var(--olive)!important;font-weight:500!important;padding:12px 22px!important;box-shadow:0 3px 0 #c9b98f}
 </style>
 </head>
 <body data-mazal="Mazal tov!" data-chaim="L&#x27;chaim!">
@@ -663,7 +674,6 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
   <picture class="secpic"><source srcset="img/g_rsvp.webp" type="image/webp"><img src="img/g_rsvp.jpg" width="700" height="700" loading="lazy" alt="Рисунок: Аня и Саша читают письма гостей"></picture>
   <p class="lead2">Ответь, пожалуйста, как можно раньше: по ответам мы заказываем еду и вино. Приглашение личное. Если придёшь с парой, отметь это в анкете.</p>
   <p class="rsvp-go"><a class="btn big" href="https://docs.google.com/forms/d/107KyGvoXxGaByihdr8x47R8hNl4AKhRPvbF8EnVAkHA/viewform" target="_blank" rel="noopener">Заполнить анкету</a></p>
-  <p class="small rsvp-t">Займёт 2–3 минуты. Ответ потом можно поменять.</p>
 </div></section>
 
 <section id="online" class="only-on"><div class="pad">
