@@ -740,6 +740,23 @@ html:not([data-mode]) #rsvp .only-on{display:none}
 #contact .ct{background:transparent!important;border:0!important;padding:4px!important}
 #contact .ct-n{font-size:1.4rem!important;margin-bottom:4px!important;opacity:.8}
 #contact .ct-a,#contact .ct-a.tg,#contact .ct-a.wa{background:transparent!important;color:var(--ink)!important;border:1px solid #cdbb94!important;padding:5px 8px!important;font-size:12px!important;opacity:.85}
+
+/* v19: overlay (RSVP) + postcard (dress code, Friday) */
+.ovl{position:relative;border-radius:22px;overflow:hidden;min-height:430px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;padding:20px 18px 22px!important;box-shadow:0 10px 26px rgba(59,42,28,.22)}
+.ovl .secpic{position:absolute!important;inset:0;width:100%!important;margin:0!important;transform:none!important}
+.ovl .secpic img{width:100%!important;height:100%!important;object-fit:cover;border-radius:0!important;box-shadow:none!important}
+.ovl::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(35,26,16,0) 25%,rgba(35,26,16,.55) 52%,rgba(35,26,16,.9));pointer-events:none}
+.ovl > :not(picture){position:relative;z-index:1}
+.ovl .lead2{color:#fffaf0!important;font-size:16px!important;font-weight:500!important;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.ovl .rsvp-go{margin:4px 0 0!important}
+.ovl .btn{background:#fffaf0!important;color:var(--olive)!important;box-shadow:0 5px 0 #c9b98f!important}
+.dcol{padding:0 0 16px!important;overflow:hidden}
+.dcol .dcpic{width:100%!important;margin:0 0 4px!important}
+.dcol .dcpic img{border-radius:0!important;margin:0!important;aspect-ratio:4/3;object-fit:cover}
+.dcol > :not(picture){margin-left:16px!important;margin-right:16px!important}
+.afcard.pc{padding:0 0 18px!important;overflow:hidden;border-style:solid!important}
+.afcard .cardpic img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.afcard.pc > :not(picture){margin-left:16px;margin-right:16px}
 </style>
 </head>
 <body data-mazal="Mazal tov!" data-chaim="L&#x27;chaim!">
@@ -801,14 +818,14 @@ html:not([data-mode]) #rsvp .only-on{display:none}
 <section id="rsvp"><div class="pad">
   <h2>Анкета гостя</h2>
   <div class="seg" role="group" aria-label="Как ты будешь с нами?"><button type="button" class="sbtn mseg" data-mode="offline" aria-pressed="true">Приеду</button><button type="button" class="sbtn mseg" data-mode="online" aria-pressed="false">Посмотрю онлайн</button></div>
-  <div class="only-off rs-panel">
+  <div class="only-off rs-panel ovl">
     <picture class="secpic"><source srcset="img/g_rsvp.webp" type="image/webp"><img src="img/g_rsvp.jpg" width="700" height="700" loading="lazy" alt="Рисунок: Аня и Саша читают письма гостей"></picture>
     <p class="lead2">Ответь, пожалуйста, как можно раньше: по ответам мы заказываем еду и вино. Приглашение личное. Если придёшь с парой, отметь это в анкете.</p>
     <p class="rsvp-go"><a class="btn big" href="https://docs.google.com/forms/d/107KyGvoXxGaByihdr8x47R8hNl4AKhRPvbF8EnVAkHA/viewform" target="_blank" rel="noopener">Заполнить анкету</a></p>
   </div>
   <div class="only-on rs-panel">
-    <picture class="secpic"><source srcset="img/g_online.webp" type="image/webp"><img src="img/g_online.jpg" width="700" height="700" loading="lazy" alt="Рисунок: друзья в шарфах машут ноутбуку, на котором идёт трансляция"></picture>
-    <div class="streambox"><span>▶</span><p>Трансляция будет прямо здесь, на сайте. Ничего устанавливать не нужно.</p></div>
+    <div class="ovl"><picture class="secpic"><source srcset="img/g_online.webp" type="image/webp"><img src="img/g_online.jpg" width="700" height="700" loading="lazy" alt="Рисунок: друзья в шарфах машут ноутбуку, на котором идёт трансляция"></picture>
+    <p class="lead2">▶ Трансляция будет прямо здесь, на сайте. Ничего устанавливать не нужно.</p></div>
     <h3 class="on-h">Что можно сделать онлайн</h3>
     <ul class="ontiles"><li><i>🎥</i><b>Видео для нас</b><span>Покажем его гостям</span></li><li><i>🥂</i><b>Тост в эфире</b><span>Подключим тебя по видео</span></li><li><i>💌</i><b>Привет молодым</b><span>Прочитаем его вслух</span></li></ul>
     <p class="rsvp-go"><a class="btn big" href="https://docs.google.com/forms/d/1VrEj88e-SCR55u9bq39bf5hH-3TVEgZyoqw-cLrVS_Q/viewform" target="_blank" rel="noopener">Анкета онлайн-гостя</a></p>
@@ -848,8 +865,8 @@ html:not([data-mode]) #rsvp .only-on{display:none}
 
 <section id="after" class="only-off"><div class="pad">
   <h2>Продолжение следует</h2>
-  <div class="afpics"><picture class="afp"><source srcset="img/g_bar.webp" type="image/webp"><img src="img/g_bar.jpg" width="700" height="700" loading="lazy" alt="Рисунок: Аня, Саша и друзья поднимают бокалы"></picture></div>
-  <div class="afcard">
+  <div class="afcard pc">
+    <picture class="cardpic"><source srcset="img/g_bar.webp" type="image/webp"><img src="img/g_bar.jpg" width="700" height="700" loading="lazy" alt="Рисунок: Аня, Саша и друзья поднимают бокалы"></picture>
     <p class="af-kick">День второй</p>
     <p class="af-date">Пятница, 29 января</p>
     <p>На следующий день продолжаем праздновать, уже без платьев и костюмов. Будем рады всем, кто сможет: соберёмся в Тель-Авиве, позавтракаем вместе и погуляем. Если придёшь, отметь это в анкете.</p>
