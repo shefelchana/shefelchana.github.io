@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Chana and Alex//Wedding//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:wedding-2027-01-28-chana-alex@shefelchana.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270129
+SUMMARY:Свадьба Ани и Саши
+LOCATION:Тель-Авив или окрестности
+DESCRIPTION:В календаре пока стоит весь день.
+END:VEVENT
+END:VCALENDAR
