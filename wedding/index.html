@@ -757,6 +757,19 @@ html:not([data-mode]) #rsvp .only-on{display:none}
 .afcard.pc{padding:0 0 18px!important;overflow:hidden;border-style:solid!important}
 .afcard .cardpic img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
 .afcard.pc > :not(picture){margin-left:16px;margin-right:16px}
+
+/* v20: nav + languages at the very top */
+nav.tabs{display:flex;align-items:center;gap:4px;border-top:0!important}
+nav.tabs > div{flex:1 1 auto;min-width:0}
+nav.tabs .langs{flex:none;display:flex;gap:0;padding:0 8px 0 0!important;border-inline-start:1px solid var(--line)}
+nav.tabs .langs a{padding:8px 7px!important;font-size:12px!important;border-width:1px}
+html[dir=rtl] .artwrap .heartbtn{left:50%!important;right:auto!important}
+
+/* v21: flower dividers instead of side vines */
+.hero::before,.hero::after,.end::after{display:none!important;content:none!important}
+section h2::after{display:none!important}
+#rsvp::before,#wear::before,#after::before,#how::before,#faq::before,.end::before,#contact::before,#who::before{content:""!important;display:block!important;position:static!important;width:200px!important;height:25px!important;margin:0 auto 14px!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='30' viewBox='0 0 240 30'%3E%3Cpath d='M8 15H86M154 15H232' stroke='%236f7f2e' stroke-width='1.2' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M0 0C4-4 12-4 16 0C12 4 4 4 0 0Z' fill='%236f7f2e' transform='translate(84 15) rotate(-25)'/%3E%3Cpath d='M0 0C4-4 12-4 16 0C12 4 4 4 0 0Z' fill='%236f7f2e' transform='translate(156 15) rotate(205)'/%3E%3Cpath d='M0 0C4-4 12-4 16 0C12 4 4 4 0 0Z' fill='%236f7f2e' transform='translate(98 9) rotate(-60)'/%3E%3Cpath d='M0 0C4-4 12-4 16 0C12 4 4 4 0 0Z' fill='%236f7f2e' transform='translate(142 9) rotate(240)'/%3E%3Cg fill='%23fffaf0' stroke='%23cdb88a' stroke-width='.8'%3E%3Cellipse cx='104' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(0 104 17)'/%3E%3Cellipse cx='104' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(72 104 17)'/%3E%3Cellipse cx='104' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(144 104 17)'/%3E%3Cellipse cx='104' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(216 104 17)'/%3E%3Cellipse cx='104' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(288 104 17)'/%3E%3C/g%3E%3Ccircle cx='104' cy='17' r='1.98' fill='%23e3a33f'/%3E%3Cg fill='%23fffaf0' stroke='%23cdb88a' stroke-width='.8'%3E%3Cellipse cx='120' cy='7.3999999999999995' rx='4.32' ry='6.6000000000000005' transform='rotate(0 120 14)'/%3E%3Cellipse cx='120' cy='7.3999999999999995' rx='4.32' ry='6.6000000000000005' transform='rotate(72 120 14)'/%3E%3Cellipse cx='120' cy='7.3999999999999995' rx='4.32' ry='6.6000000000000005' transform='rotate(144 120 14)'/%3E%3Cellipse cx='120' cy='7.3999999999999995' rx='4.32' ry='6.6000000000000005' transform='rotate(216 120 14)'/%3E%3Cellipse cx='120' cy='7.3999999999999995' rx='4.32' ry='6.6000000000000005' transform='rotate(288 120 14)'/%3E%3C/g%3E%3Ccircle cx='120' cy='14' r='2.64' fill='%23e3a33f'/%3E%3Cg fill='%23fffaf0' stroke='%23cdb88a' stroke-width='.8'%3E%3Cellipse cx='136' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(0 136 17)'/%3E%3Cellipse cx='136' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(72 136 17)'/%3E%3Cellipse cx='136' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(144 136 17)'/%3E%3Cellipse cx='136' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(216 136 17)'/%3E%3Cellipse cx='136' cy='12.05' rx='3.2399999999999998' ry='4.95' transform='rotate(288 136 17)'/%3E%3C/g%3E%3Ccircle cx='136' cy='17' r='1.98' fill='%23e3a33f'/%3E%3C/svg%3E") center/contain no-repeat!important;transform:none!important}
+#contact::before{width:140px!important;height:18px!important;opacity:.7}
 </style>
 </head>
 <body data-mazal="Mazal tov!" data-chaim="L&#x27;chaim!">
@@ -779,10 +792,13 @@ html:not([data-mode]) #rsvp .only-on{display:none}
 <div class="wpop" id="wpop" aria-live="polite" data-say="Скажи вместе со всеми"></div>
 <div class="page">
 
+<nav class="tabs" aria-label="Разделы"><div>
+  <a href="#date">Дата</a><a href="#rsvp">Анкета</a><a class="only-off" href="#wear">Дресс-код</a><a class="only-off" href="#after">Пятница</a><a href="#how">Хупа</a>
+</div><span class="langs"><a href="index.html" hreflang="ru" lang="ru" aria-current=page>RU</a><a href="en/index.html" hreflang="en" lang="en">EN</a><a href="he/index.html" hreflang="he" lang="he">עב</a></span></nav>
+
 <header class="hero">
   <button class="lightsbtn" type="button" data-fx="lights" aria-label="Зажечь гирлянду"><svg class="lights wob" viewBox="0 0 560 60" role="img" aria-label="Гирлянда">
 <path class="d" d="M0 14 C 60 48, 120 10, 180 34 S 300 12, 360 32 S 480 14, 560 28"/><path class="d" d="M40 34 v6"/><path class="bulb" d="M35 40 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M95 19.0 v6"/><path class="bulb" d="M90 25.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M150 29.0 v6"/><path class="bulb" d="M145 35.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M205 14 v6"/><path class="bulb" d="M200 20 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M260 29.0 v6"/><path class="bulb" d="M255 35.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M315 19.0 v6"/><path class="bulb" d="M310 25.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M370 34 v6"/><path class="bulb" d="M365 40 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M425 19.0 v6"/><path class="bulb" d="M420 25.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M480 29.0 v6"/><path class="bulb" d="M475 35.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M530 14 v6"/><path class="bulb" d="M525 20 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/></svg></button>
-  <div class="langs"><a href="index.html" hreflang="ru" lang="ru" aria-current=page>RU</a><a href="en/index.html" hreflang="en" lang="en">EN</a><a href="he/index.html" hreflang="he" lang="he">עב</a></div>
   <p class="hello" id="hello" hidden data-t="{name}, мы очень ждём тебя!"></p>
   <div class="artwrap"><picture class="art"><source srcset="img/couple-casual.webp" type="image/webp"><img src="img/couple-casual.jpg" width="900" height="1200" alt="Рисунок: Аня и Саша держатся за руки"></picture><button class="heartbtn" type="button" data-confetti aria-label="Осыпать цветами"><svg viewBox="-12 -12 24 24" aria-hidden="true"><g fill="#fffaf0" stroke="#cdb88a" stroke-width=".7"><ellipse cy="-5.6" rx="3.4" ry="5.2"/><ellipse cy="-5.6" rx="3.4" ry="5.2" transform="rotate(72)"/><ellipse cy="-5.6" rx="3.4" ry="5.2" transform="rotate(144)"/><ellipse cy="-5.6" rx="3.4" ry="5.2" transform="rotate(216)"/><ellipse cy="-5.6" rx="3.4" ry="5.2" transform="rotate(288)"/></g><circle r="2.6" fill="#e3a33f"/></svg></button></div>
   <div class="hero2">
@@ -799,9 +815,7 @@ html:not([data-mode]) #rsvp .only-on{display:none}
 
 
 <a class="scrollhint" id="scrollhint" href="#scratch" aria-label="Листай вниз"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-<nav class="tabs" aria-label="Разделы"><div>
-  <a href="#date">Дата</a><a href="#rsvp">Анкета</a><a class="only-off" href="#wear">Дресс-код</a><a class="only-off" href="#after">Пятница</a><a href="#how">Хупа</a>
-</div></nav>
+
 
 <main>
 <section id="date"><div class="pad">
@@ -1330,7 +1344,7 @@ html:not([data-mode]) #rsvp .only-on{display:none}
     tail.forEach(function(el){ tio.observe(el); });
   }
   // Active tab
-  var links = document.querySelectorAll(".tabs a");
+  var links = document.querySelectorAll(".tabs > div a");
   if (links.length && "IntersectionObserver" in window) {
     var io = new IntersectionObserver(function(es){
       es.forEach(function(e){ if (e.isIntersecting) links.forEach(function(a){
