@@ -558,6 +558,15 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .artwrap .heartbtn::after{border-color:var(--olive)!important}
 .artwrap{margin-top:52px!important}
 .hello{font:700 2.4rem/1.1 var(--disp)!important;color:var(--olive)!important;margin:10px 28px 0!important}
+.wxbox{border:1.5px solid var(--line);border-radius:16px;padding:18px 16px;background:#fffaf0;display:flex;flex-direction:column;gap:10px}
+.wx-sub{font-size:.9375rem;color:var(--muted)!important;margin:0}
+.wx-days{list-style:none!important;padding:0!important;margin:0;display:flex!important;flex-direction:row!important;gap:8px;overflow-x:auto;scrollbar-width:none}
+.wx-days li{flex:1 0 64px;text-align:center;border-radius:12px;background:var(--paper2);padding:10px 4px;display:flex;flex-direction:column;gap:2px}
+.wx-days li.wd{background:var(--olive);color:#fbf3de}.wx-days li.wd span,.wx-days li.wd small{color:#fbf3de!important}
+.wx-days b{font-size:1.25rem;font-weight:500}
+.wx-days span{font-size:.8125rem;color:var(--muted)}
+.wx-days i{font-style:normal;font-size:1.4rem;line-height:1}
+.wx-days small{font-size:.75rem;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -659,7 +668,12 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
       <div class="chips-h">Лучше не надо</div><ul class="chips no"><li>Шорты</li><li>Футболка и спортивный костюм</li><li>Шлёпанцы и сандалии</li></ul>
     </div>
   </div>
-  <p class="wx2">☂ <b>Вечером около +10° и бывает дождь.</b> Возьми пальто или тёплую куртку и зонт.</p>
+  <div class="wxbox" id="wx" data-lang="ru" data-norm="Обычно в конце января. Ближе к свадьбе здесь появится прогноз на неделю." data-live="Прогноз на неделю свадьбы">
+    <h3>Погода в Тель-Авиве</h3>
+    <p class="wx-sub" id="wxsub">Обычно в конце января. Ближе к свадьбе здесь появится прогноз на неделю.</p>
+    <ul class="wx-days" id="wxdays"><li><b>18°</b><span>днём</span></li><li><b>10°</b><span>вечером</span></li><li><b>1/3</b><span>дней с дождём</span></li></ul>
+    <p class="wx2">Возьми пальто или тёплую куртку и зонт.</p>
+  </div>
   <div class="box tilt"><h3>Если хочешь в тон</h3><div class="sw"><span><i style="background:#5e6e24"></i>олива</span><span><i style="background:#9aa57a"></i>шалфей</span><span><i style="background:#b8643f"></i>терракота</span><span><i style="background:#c99a3a"></i>горчица</span><span><i style="background:#d9c3a0"></i>бежевый</span><span><i style="background:#4a3426"></i>шоколад</span></div></div>
 </div></section>
 
@@ -962,6 +976,25 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
     mo.classList.add("on"); cap.textContent = cap.getAttribute("data-after"); tb.hidden = true;
     if (window.__burst) window.__burst(60);
   });
+})();
+(function(){
+  // Live forecast for the wedding week (Open-Meteo, no key), shown once it is within forecast range
+  var box = document.getElementById("wx"); if (!box || !window.fetch) return;
+  var start = new Date("2027-01-25T00:00:00+02:00"), now = new Date();
+  if ((start - now) / 86400000 > 14) return;
+  var url = "https://api.open-meteo.com/v1/forecast?latitude=32.08&longitude=34.78&timezone=Asia%2FJerusalem&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&start_date=2027-01-25&end_date=2027-01-31";
+  function icon(c){ return c <= 1 ? "☀️" : c <= 3 ? "⛅" : c <= 48 ? "🌫️" : c <= 67 || (c >= 80 && c <= 82) ? "🌧️" : c >= 95 ? "⛈️" : "☁️"; }
+  fetch(url).then(function(r){ return r.json(); }).then(function(d){
+    if (!d.daily || !d.daily.time) return;
+    var lang = box.getAttribute("data-lang"), ul = document.getElementById("wxdays"), html = "";
+    var loc = lang === "he" ? "he-IL" : lang === "en" ? "en-GB" : "ru-RU";
+    d.daily.time.forEach(function(t, i){
+      var dt = new Date(t + "T12:00:00"), wd = dt.toLocaleDateString(loc, { weekday: "short" }), dd = dt.getDate();
+      html += '<li' + (dd === 28 ? ' class="wd"' : '') + '><span>' + wd + ' ' + dd + '</span><i>' + icon(d.daily.weather_code[i]) + '</i><b>' + Math.round(d.daily.temperature_2m_max[i]) + '°</b><small>' + Math.round(d.daily.temperature_2m_min[i]) + '° · ' + (d.daily.precipitation_probability_max[i] || 0) + '%</small></li>';
+    });
+    ul.innerHTML = html;
+    document.getElementById("wxsub").textContent = box.getAttribute("data-live");
+  }).catch(function(){});
 })();
 (function(){
   // Floating RSVP button
