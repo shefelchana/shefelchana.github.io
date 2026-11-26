@@ -727,6 +727,11 @@ h2{font-size:3rem!important}
 
 /* v16: bigger date */
 .scratch.big .dt{font:700 5.4rem/1 var(--disp)!important;padding:12px 22px!important}
+
+/* v17: rsvp + online in one block */
+html:not([data-mode]) #rsvp .only-on{display:none}
+.rs-panel{display:flex;flex-direction:column;gap:12px}
+#rsvp .seg{margin:4px auto 6px}
 </style>
 </head>
 <body data-mazal="Mazal tov!" data-chaim="L&#x27;chaim!">
@@ -770,7 +775,7 @@ h2{font-size:3rem!important}
 
 <a class="scrollhint" id="scrollhint" href="#scratch" aria-label="Scroll down"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 <nav class="tabs" aria-label="Sections"><div>
-  <a href="#date">Date</a><a class="only-off" href="#rsvp">Guest form</a><a class="only-on" href="#online">Online</a><a class="only-off" href="#wear">Dress code</a><a class="only-off" href="#after">Friday</a><a href="#how">Chuppah</a>
+  <a href="#date">Date</a><a href="#rsvp">Guest form</a><a class="only-off" href="#wear">Dress code</a><a class="only-off" href="#after">Friday</a><a href="#how">Chuppah</a>
 </div></nav>
 
 <main>
@@ -785,20 +790,21 @@ h2{font-size:3rem!important}
 
 <svg class="garland wob" viewBox="0 0 560 70" aria-hidden="true"><path class="stem" d="M-10 39.4 L0 40.6 L10 41.6 L20 42.4 L30 43.1 L40 43.6 L50 43.9 L60 44.0 L70 43.9 L80 43.6 L90 43.1 L100 42.4 L110 41.5 L120 40.5 L130 39.4 L140 38.1 L150 36.8 L160 35.4 L170 34.0 L180 32.5 L190 31.1 L200 29.8 L210 28.6 L220 27.4 L230 26.4 L240 25.6 L250 24.9 L260 24.4 L270 24.1 L280 24.0 L290 24.1 L300 24.4 L310 24.9 L320 25.6 L330 26.5 L340 27.5 L350 28.6 L360 29.9 L370 31.2 L380 32.6 L390 34.1 L400 35.5 L410 36.9 L420 38.2 L430 39.5 L440 40.6 L450 41.6 L460 42.4 L470 43.1 L480 43.6 L490 43.9 L500 44.0 L510 43.9 L520 43.6 L530 43.1 L540 42.4 L550 41.5 L560 40.5 L570 39.4"/><path class="lf2" transform="translate(0 40.6) rotate(25)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(20 42.4) rotate(-37)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(40 43.6) rotate(206)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(60 44.0) rotate(151)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(80 43.6) rotate(35)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(100 42.4) rotate(-46)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(120 40.5) rotate(204)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(140 38.1) rotate(151)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(160 35.4) rotate(27)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(180 32.5) rotate(-29)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(200 29.8) rotate(218)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(220 27.4) rotate(145)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(240 25.6) rotate(44)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(260 24.4) rotate(-33)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(280 24.0) rotate(217)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(300 24.4) rotate(143)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(320 25.6) rotate(29)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(340 27.5) rotate(-44)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(360 29.9) rotate(213)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(380 32.6) rotate(142)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(400 35.5) rotate(42)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(420 38.2) rotate(-41)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(440 40.6) rotate(213)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(460 42.4) rotate(156)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(480 43.6) rotate(38)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(500 44.0) rotate(-31)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(520 43.6) rotate(220)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(540 42.4) rotate(155)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(560 40.5) rotate(28)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><g transform="translate(68 43.9)"><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(288)"/><circle class="ctr" r="3.1"/></g><g transform="translate(286 24.0)"><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(288)"/><circle class="ctr" r="3.1"/></g><g transform="translate(452 41.8)"><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(288)"/><circle class="ctr" r="3.1"/></g></svg>
 
-<section id="rsvp" class="only-off"><div class="pad">
+<section id="rsvp"><div class="pad">
   <h2>Guest form</h2>
-  <picture class="secpic"><source srcset="../img/g_rsvp.webp" type="image/webp"><img src="../img/g_rsvp.jpg" width="700" height="700" loading="lazy" alt="Illustration: Chana and Alex reading guests&#x27; letters"></picture>
-  <p class="lead2">Please reply as soon as you can: we order food and wine based on your answers. This invitation is personal. If you're bringing a +1, mark it in the form.</p>
-  <p class="rsvp-go"><a class="btn big" href="https://docs.google.com/forms/d/107KyGvoXxGaByihdr8x47R8hNl4AKhRPvbF8EnVAkHA/viewform" target="_blank" rel="noopener">Fill in the form</a></p>
-</div></section>
-
-<section id="online" class="only-on"><div class="pad">
-  <h2>Live stream</h2>
-  <picture class="secpic"><source srcset="../img/g_online.webp" type="image/webp"><img src="../img/g_online.jpg" width="700" height="700" loading="lazy" alt="Illustration: friends in scarves waving at a laptop showing the stream"></picture>
-  <div class="streambox"><span>▶</span><p>The stream will be right here on this site. Nothing to install.</p></div>
-  <h3 class="on-h">What you can do online</h3>
-  <ul class="ontiles"><li><i>🎥</i><b>Video message</b><span>We'll show it to the guests</span></li><li><i>🥂</i><b>A live toast</b><span>We'll bring you in by video</span></li><li><i>💌</i><b>A greeting</b><span>We'll read it out loud</span></li></ul>
-  <p class="rsvp-go"><a class="btn" href="https://docs.google.com/forms/d/1VrEj88e-SCR55u9bq39bf5hH-3TVEgZyoqw-cLrVS_Q/viewform" target="_blank" rel="noopener">Online guest form</a></p>
+  <div class="seg" role="group" aria-label="How will you join us?"><button type="button" class="sbtn mseg" data-mode="offline" aria-pressed="true">I'll come</button><button type="button" class="sbtn mseg" data-mode="online" aria-pressed="false">Watch online</button></div>
+  <div class="only-off rs-panel">
+    <picture class="secpic"><source srcset="../img/g_rsvp.webp" type="image/webp"><img src="../img/g_rsvp.jpg" width="700" height="700" loading="lazy" alt="Illustration: Chana and Alex reading guests&#x27; letters"></picture>
+    <p class="lead2">Please reply as soon as you can: we order food and wine based on your answers. This invitation is personal. If you're bringing a +1, mark it in the form.</p>
+    <p class="rsvp-go"><a class="btn big" href="https://docs.google.com/forms/d/107KyGvoXxGaByihdr8x47R8hNl4AKhRPvbF8EnVAkHA/viewform" target="_blank" rel="noopener">Fill in the form</a></p>
+  </div>
+  <div class="only-on rs-panel">
+    <picture class="secpic"><source srcset="../img/g_online.webp" type="image/webp"><img src="../img/g_online.jpg" width="700" height="700" loading="lazy" alt="Illustration: friends in scarves waving at a laptop showing the stream"></picture>
+    <div class="streambox"><span>▶</span><p>The stream will be right here on this site. Nothing to install.</p></div>
+    <h3 class="on-h">What you can do online</h3>
+    <ul class="ontiles"><li><i>🎥</i><b>Video message</b><span>We'll show it to the guests</span></li><li><i>🥂</i><b>A live toast</b><span>We'll bring you in by video</span></li><li><i>💌</i><b>A greeting</b><span>We'll read it out loud</span></li></ul>
+    <p class="rsvp-go"><a class="btn big" href="https://docs.google.com/forms/d/1VrEj88e-SCR55u9bq39bf5hH-3TVEgZyoqw-cLrVS_Q/viewform" target="_blank" rel="noopener">Online guest form</a></p>
+  </div>
 </div></section>
 
 <svg class="garland wob" viewBox="0 0 560 70" aria-hidden="true"><path class="stem" d="M-10 44.0 L0 43.9 L10 43.6 L20 43.1 L30 42.4 L40 41.5 L50 40.5 L60 39.4 L70 38.1 L80 36.8 L90 35.4 L100 34.0 L110 32.5 L120 31.1 L130 29.8 L140 28.6 L150 27.4 L160 26.4 L170 25.6 L180 24.9 L190 24.4 L200 24.1 L210 24.0 L220 24.1 L230 24.4 L240 24.9 L250 25.6 L260 26.5 L270 27.5 L280 28.6 L290 29.9 L300 31.2 L310 32.6 L320 34.1 L330 35.5 L340 36.9 L350 38.2 L360 39.5 L370 40.6 L380 41.6 L390 42.4 L400 43.1 L410 43.6 L420 43.9 L430 44.0 L440 43.9 L450 43.6 L460 43.1 L470 42.4 L480 41.5 L490 40.5 L500 39.4 L510 38.1 L520 36.8 L530 35.4 L540 33.9 L550 32.5 L560 31.1 L570 29.8"/><path class="lf2" transform="translate(0 43.9) rotate(46)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(20 43.1) rotate(-34)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(40 41.5) rotate(214)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(60 39.4) rotate(146)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(80 36.8) rotate(41)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(100 34.0) rotate(-23)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(120 31.1) rotate(213)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(140 28.6) rotate(139)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(160 26.4) rotate(32)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(180 24.9) rotate(-45)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(200 24.1) rotate(218)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(220 24.1) rotate(157)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(240 24.9) rotate(28)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(260 26.5) rotate(-29)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(280 28.6) rotate(208)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(300 31.2) rotate(155)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(320 34.1) rotate(36)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(340 36.9) rotate(-38)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(360 39.5) rotate(204)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(380 41.6) rotate(137)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(400 43.1) rotate(45)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(420 43.9) rotate(-43)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(440 43.9) rotate(218)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(460 43.1) rotate(146)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(480 41.5) rotate(34)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(500 39.4) rotate(-30)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(520 36.8) rotate(206)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(540 33.9) rotate(149)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(560 31.1) rotate(25)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><g transform="translate(87 35.8)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g><g transform="translate(283 29.0)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g><g transform="translate(443 43.8)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g></svg>
@@ -1196,9 +1202,9 @@ h2{font-size:3rem!important}
 (function(){
   // Dress code: women / men
   var box = document.getElementById("dc2"); if (!box) return;
-  document.querySelectorAll(".sbtn").forEach(function(b){ b.addEventListener("click", function(){
+  document.querySelectorAll(".sbtn[data-dc]").forEach(function(b){ b.addEventListener("click", function(){
     box.setAttribute("data-show", b.getAttribute("data-dc"));
-    document.querySelectorAll(".sbtn").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    document.querySelectorAll(".sbtn[data-dc]").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
   }); });
 })();
 (function(){
@@ -1217,10 +1223,10 @@ h2{font-size:3rem!important}
 })();
 (function(){
   // Offline / online mode
-  var root = document.documentElement, btns = document.querySelectorAll(".mbtn"), fab = document.getElementById("fab");
+  var root = document.documentElement, btns = document.querySelectorAll(".mbtn,.mseg"), fab = document.getElementById("fab");
   function set(m, jump){
     if (m) root.setAttribute("data-mode", m); else root.removeAttribute("data-mode");
-    btns.forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-mode") === m ? "true" : "false"); });
+    btns.forEach(function(b){ var cur = m || (b.classList.contains("mseg") ? "offline" : ""); b.setAttribute("aria-pressed", b.getAttribute("data-mode") === cur ? "true" : "false"); });
     if (fab) {
       if (!fab.dataset.offT) { fab.dataset.offT = fab.textContent; fab.dataset.offH = fab.getAttribute("href"); }
       var on = m === "online";
@@ -1228,13 +1234,13 @@ h2{font-size:3rem!important}
       fab.setAttribute("href", on ? fab.dataset.on : fab.dataset.offH);
       if (on) fab.setAttribute("target", "_blank"); else fab.removeAttribute("target");
     }
-    if (jump) { var t = document.getElementById(m === "online" ? "online" : "rsvp"); if (t) t.scrollIntoView({ behavior: "smooth" }); }
+    if (jump) { var t = document.getElementById("rsvp"); if (t) t.scrollIntoView({ behavior: "smooth" }); }
   }
   var saved = null; try { saved = localStorage.getItem("wedding-mode"); } catch (e) {}
   set(saved, false);
   btns.forEach(function(b){ b.addEventListener("click", function(){
     var m = b.getAttribute("data-mode"); try { localStorage.setItem("wedding-mode", m); } catch (e) {}
-    set(m, true);
+    set(m, !b.classList.contains("mseg"));
   }); });
 })();
 (function(){
