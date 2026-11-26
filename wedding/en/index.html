@@ -619,6 +619,20 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .ct-a{display:inline-flex;align-items:center;justify-content:center;min-width:130px;padding:13px 18px;border-radius:999px;font:500 16px/1 var(--body);text-decoration:none;color:#fffaf0;background:#2a9fd8;box-shadow:0 4px 0 #1d6f97}
 .ct-a.wa{background:#25a35a;box-shadow:0 4px 0 #1a7340}
 .ct-s{margin:12px 0 0!important;font-size:14px;opacity:.75}
+
+/* v10: guest cloud */
+.who-n{text-align:center;font:500 18px/1.3 var(--body);margin:6px 0 0!important}
+.who-n b{font:500 30px/1 var(--body);color:var(--olive)}
+.cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:18px}
+.cloud .g{display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 5px;border-radius:999px;font:500 16px/1 var(--body);opacity:0;transform:scale(.3)}
+.cloud.go .g{animation:gpop .55s cubic-bezier(.2,1.6,.4,1) var(--d) forwards}
+.cloud .g i{font-style:normal;font-size:20px;width:32px;height:32px;display:grid;place-items:center;background:#fffaf0;border-radius:50%}
+.g.c0{background:#e6e9cf}.g.c1{background:#f6e2cf}.g.c2{background:#e3ecdf}.g.c3{background:#f3e7c4}
+.g.on{outline:1.5px dashed var(--olive)}
+@keyframes gpop{to{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.cloud .g{opacity:1;transform:none}.cloud.go .g{animation:none}}
+.who-flags{text-align:center;font-size:20px;margin:14px 0 0!important}
+.who-d{margin-top:14px!important}
 </style>
 </head>
 <body data-mazal="Mazal tov!" data-chaim="L&#x27;chaim!">
@@ -674,9 +688,15 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
   <ul class="infos"><li><span aria-hidden="true">📍</span>We'll send the time and address in early January.</li><li><span aria-hidden="true">🚌</span>No car? We'll help you get there. Just message us.</li></ul>
 </div></section>
 
+<section id="who"><div class="pad">
+  <h2>Who's coming</h2>
+  <p class="who-n" id="whon" hidden data-forms="{&quot;one&quot;:&quot;guest&quot;,&quot;other&quot;:&quot;guests&quot;}"><span>Already</span> <b></b> <span class="wf"></span><span class="who-on" hidden> and online <b></b></span></p>
+  <div class="cloud" id="cloud" data-src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQu96erJPgCVvg0lfLoQDltSDtnLkwb3evgrL8Zl32biNTPrfvqumqvKFH4MwLQIwMbQtkvi1EujDoI/pub?gid=753486459&single=true&output=csv" data-empty="Nobody yet. Be the first!"></div>
+  <p class="who-flags" id="flags"></p>
+  <p class="lead2 who-d">Fill in the form, pick an animal, and you'll pop up here.</p>
+</div></section>
+
 <svg class="garland wob" viewBox="0 0 560 70" aria-hidden="true"><path class="stem" d="M-10 44.0 L0 43.9 L10 43.6 L20 43.1 L30 42.4 L40 41.5 L50 40.5 L60 39.4 L70 38.1 L80 36.8 L90 35.4 L100 34.0 L110 32.5 L120 31.1 L130 29.8 L140 28.6 L150 27.4 L160 26.4 L170 25.6 L180 24.9 L190 24.4 L200 24.1 L210 24.0 L220 24.1 L230 24.4 L240 24.9 L250 25.6 L260 26.5 L270 27.5 L280 28.6 L290 29.9 L300 31.2 L310 32.6 L320 34.1 L330 35.5 L340 36.9 L350 38.2 L360 39.5 L370 40.6 L380 41.6 L390 42.4 L400 43.1 L410 43.6 L420 43.9 L430 44.0 L440 43.9 L450 43.6 L460 43.1 L470 42.4 L480 41.5 L490 40.5 L500 39.4 L510 38.1 L520 36.8 L530 35.4 L540 33.9 L550 32.5 L560 31.1 L570 29.8"/><path class="lf2" transform="translate(0 43.9) rotate(46)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(20 43.1) rotate(-34)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(40 41.5) rotate(214)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(60 39.4) rotate(146)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(80 36.8) rotate(41)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(100 34.0) rotate(-23)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(120 31.1) rotate(213)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(140 28.6) rotate(139)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(160 26.4) rotate(32)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(180 24.9) rotate(-45)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(200 24.1) rotate(218)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(220 24.1) rotate(157)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(240 24.9) rotate(28)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(260 26.5) rotate(-29)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(280 28.6) rotate(208)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(300 31.2) rotate(155)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(320 34.1) rotate(36)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(340 36.9) rotate(-38)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(360 39.5) rotate(204)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(380 41.6) rotate(137)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(400 43.1) rotate(45)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(420 43.9) rotate(-43)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(440 43.9) rotate(218)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(460 43.1) rotate(146)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(480 41.5) rotate(34)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(500 39.4) rotate(-30)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(520 36.8) rotate(206)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(540 33.9) rotate(149)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(560 31.1) rotate(25)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><g transform="translate(87 35.8)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g><g transform="translate(283 29.0)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g><g transform="translate(443 43.8)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g></svg>
-
-
 
 <section id="rsvp" class="only-off"><div class="pad">
   <h2>Guest form</h2>
@@ -977,6 +997,46 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
     tl.style.setProperty("--p", p.toFixed(3));
   }
   addEventListener("scroll", prog, { passive: true }); prog();
+})();
+(function(){
+  // Guest cloud (Kahoot style)
+  var box = document.getElementById("cloud"); if (!box) return;
+  function parse(t){
+    var rows = [], row = [], f = "", q = false;
+    for (var i = 0; i < t.length; i++) {
+      var c = t[i];
+      if (q) { if (c === '"') { if (t[i+1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+      else if (c === '"') q = true;
+      else if (c === ",") { row.push(f); f = ""; }
+      else if (c === "\n") { row.push(f); rows.push(row); row = []; f = ""; }
+      else if (c !== "\r") f += c;
+    }
+    if (f || row.length) { row.push(f); rows.push(row); }
+    return rows;
+  }
+  function emo(x){ try { return /\p{Extended_Pictographic}|\p{Regional_Indicator}/u.test(x || "") ? x : ""; } catch (e) { return ""; } }
+  fetch(box.getAttribute("data-src"), { cache: "no-store" }).then(function(r){ return r.text(); }).then(function(t){
+    var rows = parse(t).slice(1).filter(function(r){ return r[0] && r[0].trim(); });
+    if (!rows.length) { var p = document.createElement("p"); p.className = "wall-empty"; p.textContent = box.getAttribute("data-empty"); box.appendChild(p); return; }
+    var off = rows.filter(function(r){ return r[3] !== "online"; }).length, on = rows.length - off, fl = {};
+    rows.forEach(function(r, i){
+      if (emo(r[2])) fl[r[2]] = (fl[r[2]] || 0) + 1;
+      var s = document.createElement("span"); s.className = "g c" + (i % 4) + (r[3] === "online" ? " on" : "");
+      s.style.setProperty("--d", (i * 0.07) + "s");
+      var e = document.createElement("i"); e.textContent = emo(r[1]) || "🌸"; s.appendChild(e);
+      s.appendChild(document.createTextNode(r[0] + (r[3] === "online" ? " 💻" : ""))); box.appendChild(s);
+    });
+    var n = document.getElementById("whon"), f = JSON.parse(n.getAttribute("data-forms"));
+    n.querySelector("b").textContent = off;
+    n.querySelector(".wf").textContent = f[new Intl.PluralRules(document.documentElement.lang).select(off)] || f.other;
+    if (on) { var o = n.querySelector(".who-on"); o.hidden = false; o.querySelector("b").textContent = on; }
+    n.hidden = false;
+    document.getElementById("flags").textContent = Object.keys(fl).map(function(k){ return k + " " + fl[k]; }).join("   ");
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { box.classList.add("go"); io.disconnect(); } }, { threshold: .2 });
+      io.observe(box);
+    } else box.classList.add("go");
+  }).catch(function(){});
 })();
 (function(){
   // Wishes wall from the published sheet

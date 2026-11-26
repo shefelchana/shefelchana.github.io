@@ -619,6 +619,20 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .ct-a{display:inline-flex;align-items:center;justify-content:center;min-width:130px;padding:13px 18px;border-radius:999px;font:500 16px/1 var(--body);text-decoration:none;color:#fffaf0;background:#2a9fd8;box-shadow:0 4px 0 #1d6f97}
 .ct-a.wa{background:#25a35a;box-shadow:0 4px 0 #1a7340}
 .ct-s{margin:12px 0 0!important;font-size:14px;opacity:.75}
+
+/* v10: guest cloud */
+.who-n{text-align:center;font:500 18px/1.3 var(--body);margin:6px 0 0!important}
+.who-n b{font:500 30px/1 var(--body);color:var(--olive)}
+.cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:18px}
+.cloud .g{display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 5px;border-radius:999px;font:500 16px/1 var(--body);opacity:0;transform:scale(.3)}
+.cloud.go .g{animation:gpop .55s cubic-bezier(.2,1.6,.4,1) var(--d) forwards}
+.cloud .g i{font-style:normal;font-size:20px;width:32px;height:32px;display:grid;place-items:center;background:#fffaf0;border-radius:50%}
+.g.c0{background:#e6e9cf}.g.c1{background:#f6e2cf}.g.c2{background:#e3ecdf}.g.c3{background:#f3e7c4}
+.g.on{outline:1.5px dashed var(--olive)}
+@keyframes gpop{to{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.cloud .g{opacity:1;transform:none}.cloud.go .g{animation:none}}
+.who-flags{text-align:center;font-size:20px;margin:14px 0 0!important}
+.who-d{margin-top:14px!important}
 </style>
 </head>
 <body data-mazal="Mazal tov!" data-chaim="L&#x27;chaim!">
@@ -674,9 +688,15 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
   <ul class="infos"><li><span aria-hidden="true">📍</span>את השעה והכתובת נשלח בתחילת ינואר.</li><li><span aria-hidden="true">🚌</span>אין רכב? נעזור להגיע. פשוט כתבו לנו.</li></ul>
 </div></section>
 
+<section id="who"><div class="pad">
+  <h2>מי כבר איתנו</h2>
+  <p class="who-n" id="whon" hidden data-forms="{&quot;one&quot;:&quot;אורח&quot;,&quot;other&quot;:&quot;אורחים&quot;}"><span>כבר</span> <b></b> <span class="wf"></span><span class="who-on" hidden> ובאונליין <b></b></span></p>
+  <div class="cloud" id="cloud" data-src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQu96erJPgCVvg0lfLoQDltSDtnLkwb3evgrL8Zl32biNTPrfvqumqvKFH4MwLQIwMbQtkvi1EujDoI/pub?gid=753486459&single=true&output=csv" data-empty="עוד אף אחד. היו הראשונים!"></div>
+  <p class="who-flags" id="flags"></p>
+  <p class="lead2 who-d">מלאו את הטופס, בחרו חיה, ותופיעו כאן.</p>
+</div></section>
+
 <svg class="garland wob" viewBox="0 0 560 70" aria-hidden="true"><path class="stem" d="M-10 41.5 L0 40.5 L10 39.4 L20 38.1 L30 36.8 L40 35.4 L50 33.9 L60 32.5 L70 31.1 L80 29.8 L90 28.5 L100 27.4 L110 26.4 L120 25.6 L130 24.9 L140 24.4 L150 24.1 L160 24.0 L170 24.1 L180 24.4 L190 24.9 L200 25.6 L210 26.5 L220 27.5 L230 28.7 L240 29.9 L250 31.3 L260 32.7 L270 34.1 L280 35.5 L290 36.9 L300 38.2 L310 39.5 L320 40.6 L330 41.6 L340 42.5 L350 43.1 L360 43.6 L370 43.9 L380 44.0 L390 43.9 L400 43.6 L410 43.1 L420 42.4 L430 41.5 L440 40.5 L450 39.3 L460 38.1 L470 36.7 L480 35.3 L490 33.9 L500 32.5 L510 31.1 L520 29.8 L530 28.5 L540 27.4 L550 26.4 L560 25.5 L570 24.9"/><path class="lf2" transform="translate(0 40.5) rotate(44)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(20 38.1) rotate(-39)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(40 35.4) rotate(222)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(60 32.5) rotate(156)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(80 29.8) rotate(30)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(100 27.4) rotate(-29)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(120 25.6) rotate(211)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(140 24.4) rotate(137)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(160 24.0) rotate(31)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(180 24.4) rotate(-29)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(200 25.6) rotate(207)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(220 27.5) rotate(149)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(240 29.9) rotate(31)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(260 32.7) rotate(-43)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(280 35.5) rotate(213)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(300 38.2) rotate(142)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(320 40.6) rotate(34)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(340 42.5) rotate(-26)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(360 43.6) rotate(225)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(380 44.0) rotate(138)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(400 43.6) rotate(47)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(420 42.4) rotate(-32)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(440 40.5) rotate(226)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(460 38.1) rotate(153)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(480 35.3) rotate(36)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(500 32.5) rotate(-41)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(520 29.8) rotate(225)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(540 27.4) rotate(157)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(560 25.5) rotate(38)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><g transform="translate(74 30.6)"><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(288)"/><circle class="ctr" r="3.1"/></g><g transform="translate(272 34.4)"><ellipse class="pet" cx="0" cy="-8" rx="4.4" ry="7.2" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-8" rx="4.4" ry="7.2" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-8" rx="4.4" ry="7.2" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-8" rx="4.4" ry="7.2" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-8" rx="4.4" ry="7.2" transform="rotate(288)"/><circle class="ctr" r="2.8"/></g><g transform="translate(443 40.2)"><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(288)"/><circle class="ctr" r="3.1"/></g></svg>
-
-
 
 <section id="rsvp" class="only-off"><div class="pad">
   <h2>אישור הגעה</h2>
@@ -977,6 +997,46 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
     tl.style.setProperty("--p", p.toFixed(3));
   }
   addEventListener("scroll", prog, { passive: true }); prog();
+})();
+(function(){
+  // Guest cloud (Kahoot style)
+  var box = document.getElementById("cloud"); if (!box) return;
+  function parse(t){
+    var rows = [], row = [], f = "", q = false;
+    for (var i = 0; i < t.length; i++) {
+      var c = t[i];
+      if (q) { if (c === '"') { if (t[i+1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+      else if (c === '"') q = true;
+      else if (c === ",") { row.push(f); f = ""; }
+      else if (c === "\n") { row.push(f); rows.push(row); row = []; f = ""; }
+      else if (c !== "\r") f += c;
+    }
+    if (f || row.length) { row.push(f); rows.push(row); }
+    return rows;
+  }
+  function emo(x){ try { return /\p{Extended_Pictographic}|\p{Regional_Indicator}/u.test(x || "") ? x : ""; } catch (e) { return ""; } }
+  fetch(box.getAttribute("data-src"), { cache: "no-store" }).then(function(r){ return r.text(); }).then(function(t){
+    var rows = parse(t).slice(1).filter(function(r){ return r[0] && r[0].trim(); });
+    if (!rows.length) { var p = document.createElement("p"); p.className = "wall-empty"; p.textContent = box.getAttribute("data-empty"); box.appendChild(p); return; }
+    var off = rows.filter(function(r){ return r[3] !== "online"; }).length, on = rows.length - off, fl = {};
+    rows.forEach(function(r, i){
+      if (emo(r[2])) fl[r[2]] = (fl[r[2]] || 0) + 1;
+      var s = document.createElement("span"); s.className = "g c" + (i % 4) + (r[3] === "online" ? " on" : "");
+      s.style.setProperty("--d", (i * 0.07) + "s");
+      var e = document.createElement("i"); e.textContent = emo(r[1]) || "🌸"; s.appendChild(e);
+      s.appendChild(document.createTextNode(r[0] + (r[3] === "online" ? " 💻" : ""))); box.appendChild(s);
+    });
+    var n = document.getElementById("whon"), f = JSON.parse(n.getAttribute("data-forms"));
+    n.querySelector("b").textContent = off;
+    n.querySelector(".wf").textContent = f[new Intl.PluralRules(document.documentElement.lang).select(off)] || f.other;
+    if (on) { var o = n.querySelector(".who-on"); o.hidden = false; o.querySelector("b").textContent = on; }
+    n.hidden = false;
+    document.getElementById("flags").textContent = Object.keys(fl).map(function(k){ return k + " " + fl[k]; }).join("   ");
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { box.classList.add("go"); io.disconnect(); } }, { threshold: .2 });
+      io.observe(box);
+    } else box.classList.add("go");
+  }).catch(function(){});
 })();
 (function(){
   // Wishes wall from the published sheet
