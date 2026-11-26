@@ -513,6 +513,17 @@ p,li,dd,.card p,.timeline span,.chips li{color:var(--ink)}
 .lead2,.dc-lead,.small,.note,.wx2,.sw span,.cnav span{color:var(--muted)!important}
 h3,.dcol h3,.af-date,.on-big,.month{color:var(--ink)!important}
 .chips li::before{font-weight:500!important}
+
+.hero2{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:30px 24px 6px}
+.hero2 h1.names{margin:0}
+.invite{font:700 2.1rem/1.1 var(--disp)!important;color:var(--ink);margin:0}
+.scratch.big{margin-top:22px}
+.scratch.big .dt{font:700 3.4rem/1 var(--disp)!important;letter-spacing:.02em;padding:10px 20px!important;color:var(--ink)}
+.when{font-size:1.0625rem;color:var(--muted)!important;margin:6px 0 0!important}
+.namewrap::after,section h2::after{display:none!important}
+.garland{display:none!important}
+.hero .choose{margin-top:22px}
+section{border-top:0}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -539,15 +550,14 @@ h3,.dcol h3,.af-date,.on-big,.month{color:var(--ink)!important}
 <path class="d" d="M0 14 C 60 48, 120 10, 180 34 S 300 12, 360 32 S 480 14, 560 28"/><path class="d" d="M40 34 v6"/><path class="bulb" d="M35 40 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M95 19.0 v6"/><path class="bulb" d="M90 25.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M150 29.0 v6"/><path class="bulb" d="M145 35.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M205 14 v6"/><path class="bulb" d="M200 20 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M260 29.0 v6"/><path class="bulb" d="M255 35.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M315 19.0 v6"/><path class="bulb" d="M310 25.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M370 34 v6"/><path class="bulb" d="M365 40 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M425 19.0 v6"/><path class="bulb" d="M420 25.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M480 29.0 v6"/><path class="bulb" d="M475 35.0 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/><path class="d" d="M530 14 v6"/><path class="bulb" d="M525 20 q5 -4 10 0 q2 10 -5 14 q-7 -4 -5 -14z"/></svg></button>
   <div class="langs"><a href="../index.html" hreflang="ru" lang="ru">RU</a><a href="../en/index.html" hreflang="en" lang="en" aria-current=page>EN</a><a href="../he/index.html" hreflang="he" lang="he">עב</a></div>
   <p class="hello" id="hello" hidden data-t="{name}, we&#x27;d love to see you there!"></p>
-  <p class="kick">wedding invitation</p>
   <div class="artwrap"><picture class="art"><source srcset="../img/couple-casual.webp" type="image/webp"><img src="../img/couple-casual.jpg" width="900" height="1200" alt="Illustration: Chana and Alex holding hands"></picture><button class="heartbtn" type="button" data-confetti aria-label="Shower with flowers"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2a4 4 0 0 1 7 2c0 5.5-7 10-7 10z"/></svg></button></div>
-  <div class="namewrap">
-  <h1 class="names"><span class="nm">Chana</span><span class="amp">&amp;</span><span class="nm">Alex</span></h1>
-  <span class="scratch" id="scratch" data-hint="scratch here"><span class="dt" dir="ltr">28 · 01 · 2027</span><canvas aria-hidden="true"></canvas><button type="button" class="sc-btn">Reveal the date</button></span>
+  <div class="hero2">
+    <h1 class="names"><span class="nm">Chana</span><span class="amp">&amp;</span><span class="nm">Alex</span></h1>
+    <p class="invite">invite you to their wedding!</p>
+    <span class="scratch big" id="scratch" data-hint="scratch here"><span class="dt" dir="ltr">28.01.2027</span><canvas aria-hidden="true"></canvas><button type="button" class="sc-btn">Reveal the date</button></span>
+    <p class="when">Thursday evening · Tel Aviv or nearby</p>
   </div>
-  <p class="marry">are getting married!</p>
   <div class="pad">
-    <p class="lead">We'd love you at our wedding: Thursday evening, 28 January 2027, in or near Tel Aviv.</p>
     <div class="choose"><p class="choose-q">How will you join us?</p>
       <div class="choose-btns"><button type="button" class="mbtn" data-mode="offline">I'll be there</button><button type="button" class="mbtn" data-mode="online">I'll watch online</button></div></div>
     <p class="small">We'll send the address and time in January.</p>
