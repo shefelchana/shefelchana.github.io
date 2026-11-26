@@ -567,6 +567,13 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .wx-days span{font-size:.8125rem;color:var(--muted)}
 .wx-days i{font-style:normal;font-size:1.4rem;line-height:1}
 .wx-days small{font-size:.75rem;color:var(--muted)}
+.dpics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dpics img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 6px 16px rgba(59,42,28,.18)}
+.dpics picture:first-child img{transform:rotate(-1.5deg)}.dpics picture:last-child img{transform:rotate(1.5deg)}
+.afpics{grid-template-columns:1fr!important;justify-items:center}.afpics .afp{width:min(300px,85%);transform:rotate(-1.5deg)!important}
+.streambox{display:flex;gap:14px;align-items:center;border:2px dashed var(--olive);border-radius:16px;padding:18px 16px;background:#fffaf0}
+.streambox span{flex:none;width:48px;height:48px;border-radius:50%;background:var(--olive);color:#fbf3de;display:grid;place-items:center;font-size:1.2rem}
+.streambox p{margin:0;font-size:.9375rem}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -599,7 +606,7 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
     <h1 class="names"><span class="nm">Chana</span><span class="amp">&amp;</span><span class="nm">Alex</span></h1>
     <p class="invite">invite you to their wedding!</p>
     <span class="scratch big" id="scratch" data-hint="scratch here"><span class="dt" dir="ltr">28.01.2027</span><canvas aria-hidden="true"></canvas><button type="button" class="sc-btn">Reveal the date</button></span>
-    <p class="when">Save the date · stay tuned ✿</p>
+    <p class="when">Save the date</p>
   </div>
   <div class="pad">
     <div class="choose"><p class="choose-q">How will you join us?</p>
@@ -610,14 +617,12 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 
 
 <nav class="tabs" aria-label="Sections"><div>
-  <a href="#date">Date</a><a class="only-off" href="#rsvp">RSVP</a><a class="only-on" href="#online">Online</a><a class="only-off" href="#wear">Dress code</a><a class="only-off" href="#after">Friday</a><a href="#how">Chuppah</a><a href="#us">About us</a>
+  <a href="#date">Date</a><a class="only-off" href="#rsvp">RSVP</a><a class="only-on" href="#online">Online</a><a class="only-off" href="#wear">Dress code</a><a class="only-off" href="#after">Friday</a><a href="#how">Chuppah</a>
 </div></nav>
 
 <main>
 <section id="date"><div class="pad">
   <h2>Save the date</h2>
-  <p class="month">January 2027</p>
-  <div class="cal" aria-hidden="true"><span class="wd">Mo</span><span class="wd">Tu</span><span class="wd">We</span><span class="wd">Th</span><span class="wd">Fr</span><span class="wd">Sa</span><span class="wd">Su</span><span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><button class="day28 tap" type="button" data-fx="hearts" aria-label="28"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M20 34 C 4 22, 0 14, 3 8 C 6 1, 16 1, 20 9 C 24 1, 34 1, 37 8 C 40 14, 36 22, 20 34 z"/></svg><b>28</b></button><span>29</span><span>30</span><span>31</span></div>
   <h3 style="text-align:center">Until the wedding</h3>
   <p class="days" id="count" data-forms="{&quot;one&quot;:&quot;day&quot;,&quot;other&quot;:&quot;days&quot;}" data-done="We&#x27;re married!"><b>–</b> <span></span></p>
   <div class="calbtns"><span class="cb-h">Add to calendar:</span>
@@ -632,8 +637,7 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 <section id="rsvp" class="only-off"><div class="pad">
   <h2>RSVP</h2>
   <picture class="secpic"><source srcset="../img/g_rsvp.webp" type="image/webp"><img src="../img/g_rsvp.jpg" width="700" height="700" loading="lazy" alt="Illustration: Chana and Alex reading guests&#x27; letters"></picture>
-  <p class="lead2">Your answer tells us how much food and wine to order. Please reply as soon as you can.</p>
-  <p class="small" style="text-align:center;margin:0">This invitation is personal. If you're bringing a +1, tell us about them in the form: name, food and drinks.</p>
+  <p class="lead2">Your answer tells us how much food and wine to order. Please reply as soon as you can. This invitation is personal. If you're bringing a +1, tell us about them in the form: name, food and drinks.</p>
   <p class="small" style="text-align:center;margin:0">Form not loading? <a href="https://docs.google.com/forms/d/107KyGvoXxGaByihdr8x47R8hNl4AKhRPvbF8EnVAkHA/viewform" target="_blank" rel="noopener">Open it separately</a></p>
   <div class="formbox"><iframe src="https://docs.google.com/forms/d/107KyGvoXxGaByihdr8x47R8hNl4AKhRPvbF8EnVAkHA/viewform?embedded=true" title="RSVP" loading="lazy">Open it separately</iframe></div>
 </div></section>
@@ -642,6 +646,7 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
   <h2>Live stream</h2>
   <picture class="secpic"><source srcset="../img/g_online.webp" type="image/webp"><img src="../img/g_online.jpg" width="700" height="700" loading="lazy" alt="Illustration: friends in scarves waving at a laptop showing the stream"></picture>
   <p class="lead2">We'll stream the chuppah live, about 30 minutes. We'll send the link closer to the date, and there'll be a recording.</p>
+  <div class="streambox"><span>▶</span><p>The live stream window and a backup link will appear right here on this site. Nothing to install.</p></div>
   <div class="oncard">
     <h3>What you can do online</h3>
     <ul class="onlist"><li>🎥 Send a video message — we'll play it at the party</li><li>🥂 Give a toast live — we'll put you on a video call</li><li>💌 Send a greeting — we'll read it out during the stream</li></ul>
@@ -654,34 +659,33 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 <section id="wear" class="only-off"><div class="pad">
   <h2>Dress code</h2>
   <p class="dc-lead">Dressy, but no strict rules. Think of a festive dinner at a nice restaurant.</p>
+  <div class="dpics"><picture><source srcset="../img/g_women.webp" type="image/webp"><img src="../img/g_women.jpg" width="700" height="700" loading="lazy" alt="Illustration: two female guests, one in a midi dress with a cardigan, one in a skirt with a jacket"></picture><picture><source srcset="../img/g_men.webp" type="image/webp"><img src="../img/g_men.jpg" width="700" height="700" loading="lazy" alt="Illustration: two male guests in kippahs, one in a suit, one in a sweater and jeans"></picture></div>
+  <div class="box tilt"><h3>If you'd like to match</h3><div class="sw"><span><i style="background:#5e6e24"></i>olive</span><span><i style="background:#9aa57a"></i>sage</span><span><i style="background:#b8643f"></i>terracotta</span><span><i style="background:#c99a3a"></i>mustard</span><span><i style="background:#d9c3a0"></i>beige</span><span><i style="background:#4a3426"></i>chocolate</span></div></div>
   <div class="dc2">
     <div class="dcol">
       <h3><svg class="ill wob" viewBox="0 0 60 90" aria-hidden="true"><path class="d" d="M24 4 v10 M36 4 v10 M22 14 q8 8 16 0 l 2 26 q12 30 16 46 h-52 q4 -16 16 -46 z M 22 40 h 16"/></svg>Women</h3>
-      <picture class="dpic"><source srcset="../img/g_women.webp" type="image/webp"><img src="../img/g_women.jpg" width="700" height="700" loading="lazy" alt="Illustration: two female guests, one in a midi dress with a cardigan, one in a skirt with a jacket"></picture>
-      <div class="chips-h">Good to wear</div><ul class="chips yes"><li>Midi or maxi dress</li><li>Trouser suit</li><li>Skirt with a blouse or sweater</li><li>Jacket, cardigan or wrap</li><li>Comfy heels or ankle boots</li></ul>
-      <div class="chips-h">Better not</div><ul class="chips no"><li>White or ivory dress</li><li>Bare shoulders at the chuppah</li><li>Mini skirts, deep necklines</li><li>Very high stilettos</li></ul>
+      <div class="chips-h">Good to wear</div><ul class="chips yes"><li>Midi or maxi dress</li><li>A below-the-knee skirt with a blouse or sweater</li><li>Jacket, cardigan or wrap</li><li>Comfy heels or ankle boots</li></ul>
+      <div class="chips-h">Better not</div><ul class="chips no"><li>Trousers and trouser suits</li><li>White or ivory dress</li><li>Bare shoulders at the chuppah</li><li>Mini skirts, deep necklines</li><li>Very high stilettos</li></ul>
     </div>
     <div class="dcol">
       <h3><svg class="ill wob" viewBox="0 0 60 90" aria-hidden="true"><path class="d" d="M18 6 l 12 4 l 12 -4 l 10 6 l 2 34 h -8 l -2 -22 v 26 h -28 v -26 l -2 22 h -8 l 2 -34 z M 30 10 l -6 14 l 6 8 l 6 -8 z M 18 50 l 2 36 h 8 l 2 -30 l 2 30 h 8 l 2 -36"/></svg>Men</h3>
-      <picture class="dpic"><source srcset="../img/g_men.webp" type="image/webp"><img src="../img/g_men.jpg" width="700" height="700" loading="lazy" alt="Illustration: two male guests in kippahs, one in a suit, one in a sweater and jeans"></picture>
       <div class="chips-h">Good to wear</div><ul class="chips yes"><li>Suit, tie optional</li><li>Blazer and trousers</li><li>Shirt and dark jeans</li><li>Sweater or turtleneck</li><li>Kippah at the chuppah (we'll have them)</li></ul>
       <div class="chips-h">Better not</div><ul class="chips no"><li>Shorts</li><li>T-shirts and tracksuits</li><li>Flip-flops and sandals</li></ul>
     </div>
   </div>
-  <div class="wxbox" id="wx" data-lang="en" data-norm="Typical for late January. The weekly forecast will appear here closer to the wedding." data-live="Forecast for the wedding week">
+  <div class="wxbox" id="wx" data-lang="en" data-norm="Typical for late January. The weekly forecast will appear here closer to the wedding." data-live="Forecast for the wedding week" data-week="Forecast for the coming week">
     <h3>Tel Aviv weather</h3>
     <p class="wx-sub" id="wxsub">Typical for late January. The weekly forecast will appear here closer to the wedding.</p>
     <ul class="wx-days" id="wxdays"><li><b>18°</b><span>day</span></li><li><b>10°</b><span>evening</span></li><li><b>1/3</b><span>days rainy</span></li></ul>
     <p class="wx2">Bring a coat or warm jacket and an umbrella.</p>
   </div>
-  <div class="box tilt"><h3>If you'd like to match</h3><div class="sw"><span><i style="background:#5e6e24"></i>olive</span><span><i style="background:#9aa57a"></i>sage</span><span><i style="background:#b8643f"></i>terracotta</span><span><i style="background:#c99a3a"></i>mustard</span><span><i style="background:#d9c3a0"></i>beige</span><span><i style="background:#4a3426"></i>chocolate</span></div></div>
 </div></section>
 
 <svg class="garland wob" viewBox="0 0 560 70" aria-hidden="true"><path class="stem" d="M-10 44.0 L0 43.9 L10 43.6 L20 43.1 L30 42.4 L40 41.5 L50 40.5 L60 39.4 L70 38.1 L80 36.8 L90 35.4 L100 34.0 L110 32.5 L120 31.1 L130 29.8 L140 28.6 L150 27.4 L160 26.4 L170 25.6 L180 24.9 L190 24.4 L200 24.1 L210 24.0 L220 24.1 L230 24.4 L240 24.9 L250 25.6 L260 26.5 L270 27.5 L280 28.6 L290 29.9 L300 31.2 L310 32.6 L320 34.1 L330 35.5 L340 36.9 L350 38.2 L360 39.5 L370 40.6 L380 41.6 L390 42.4 L400 43.1 L410 43.6 L420 43.9 L430 44.0 L440 43.9 L450 43.6 L460 43.1 L470 42.4 L480 41.5 L490 40.5 L500 39.4 L510 38.1 L520 36.8 L530 35.4 L540 33.9 L550 32.5 L560 31.1 L570 29.8"/><path class="lf2" transform="translate(0 43.9) rotate(46)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(20 43.1) rotate(-34)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(40 41.5) rotate(214)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(60 39.4) rotate(146)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(80 36.8) rotate(41)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(100 34.0) rotate(-23)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(120 31.1) rotate(213)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(140 28.6) rotate(139)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(160 26.4) rotate(32)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(180 24.9) rotate(-45)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(200 24.1) rotate(218)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(220 24.1) rotate(157)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(240 24.9) rotate(28)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(260 26.5) rotate(-29)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(280 28.6) rotate(208)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(300 31.2) rotate(155)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(320 34.1) rotate(36)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(340 36.9) rotate(-38)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(360 39.5) rotate(204)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(380 41.6) rotate(137)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(400 43.1) rotate(45)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(420 43.9) rotate(-43)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(440 43.9) rotate(218)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(460 43.1) rotate(146)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(480 41.5) rotate(34)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(500 39.4) rotate(-30)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(520 36.8) rotate(206)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(540 33.9) rotate(149)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(560 31.1) rotate(25)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><g transform="translate(87 35.8)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g><g transform="translate(283 29.0)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g><g transform="translate(443 43.8)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g></svg>
 
 <section id="after" class="only-off"><div class="pad">
   <h2>To be continued</h2>
-  <div class="afpics"><picture class="afp"><source srcset="../img/g_brunch.webp" type="image/webp"><img src="../img/g_brunch.jpg" width="700" height="700" loading="lazy" alt="Illustration: Chana, Alex and friends in sweaters at brunch"></picture><picture class="afp"><source srcset="../img/g_bar.webp" type="image/webp"><img src="../img/g_bar.jpg" width="700" height="700" loading="lazy" alt="Illustration: Chana, Alex and friends raising glasses"></picture></div>
+  <div class="afpics"><picture class="afp"><source srcset="../img/g_bar.webp" type="image/webp"><img src="../img/g_bar.jpg" width="700" height="700" loading="lazy" alt="Illustration: Chana, Alex and friends raising glasses"></picture></div>
   <div class="afcard">
     <p class="af-kick">Day two</p>
     <p class="af-date">Friday, 29 January</p>
@@ -701,13 +705,6 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 </section>
 
 <svg class="garland wob" viewBox="0 0 560 70" aria-hidden="true"><path class="stem" d="M-10 29.8 L0 28.6 L10 27.4 L20 26.4 L30 25.6 L40 24.9 L50 24.4 L60 24.1 L70 24.0 L80 24.1 L90 24.4 L100 24.9 L110 25.6 L120 26.5 L130 27.5 L140 28.6 L150 29.9 L160 31.2 L170 32.6 L180 34.1 L190 35.5 L200 36.9 L210 38.2 L220 39.5 L230 40.6 L240 41.6 L250 42.4 L260 43.1 L270 43.6 L280 43.9 L290 44.0 L300 43.9 L310 43.6 L320 43.1 L330 42.4 L340 41.5 L350 40.5 L360 39.4 L370 38.1 L380 36.8 L390 35.4 L400 33.9 L410 32.5 L420 31.1 L430 29.8 L440 28.5 L450 27.4 L460 26.4 L470 25.6 L480 24.9 L490 24.4 L500 24.1 L510 24.0 L520 24.1 L530 24.4 L540 24.9 L550 25.6 L560 26.5 L570 27.5"/><path class="lf2" transform="translate(0 28.6) rotate(45)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(20 26.4) rotate(-40)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(40 24.9) rotate(214)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(60 24.1) rotate(136)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(80 24.1) rotate(47)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(100 24.9) rotate(-43)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(120 26.5) rotate(219)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(140 28.6) rotate(147)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(160 31.2) rotate(40)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(180 34.1) rotate(-37)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(200 36.9) rotate(212)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(220 39.5) rotate(143)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(240 41.6) rotate(25)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(260 43.1) rotate(-39)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(280 43.9) rotate(210)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(300 43.9) rotate(152)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(320 43.1) rotate(34)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(340 41.5) rotate(-45)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(360 39.4) rotate(204)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(380 36.8) rotate(141)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(400 33.9) rotate(47)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(420 31.1) rotate(-46)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(440 28.5) rotate(214)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(460 26.4) rotate(151)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(480 24.9) rotate(26)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(500 24.1) rotate(-28)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(520 24.1) rotate(224)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf2" transform="translate(540 24.9) rotate(153)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><path class="lf" transform="translate(560 26.5) rotate(26)" d="M0 0 C 5 -7 15 -7 20 0 C 15 7 5 7 0 0 Z"/><g transform="translate(128 27.3)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g><g transform="translate(264 43.3)"><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-7" rx="3.9" ry="6.3" transform="rotate(288)"/><circle class="ctr" r="2.4"/></g><g transform="translate(496 24.2)"><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(0)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(72)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(144)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(216)"/><ellipse class="pet" cx="0" cy="-9" rx="5.0" ry="8.1" transform="rotate(288)"/><circle class="ctr" r="3.1"/></g></svg>
-
-<section id="us"><div class="pad">
-  <h2>Get to know us</h2>
-  
-</div>
-  <ul class="facts-row"><li class="fact"><div class="finner"><div class="ffront"><picture><source srcset="../img/t_proposal.webp" type="image/webp"><img src="../img/t_proposal.jpg" width="480" height="480" alt="" loading="lazy" draggable="false"></picture></div></div></li><li class="fact"><div class="finner"><div class="ffront"><picture><source srcset="../img/t_krakow.webp" type="image/webp"><img src="../img/t_krakow.jpg" width="480" height="480" alt="" loading="lazy" draggable="false"></picture></div></div></li><li class="fact"><div class="finner"><div class="ffront"><picture><source srcset="../img/t_trevi.webp" type="image/webp"><img src="../img/t_trevi.jpg" width="480" height="480" alt="" loading="lazy" draggable="false"></picture></div></div></li><li class="fact"><div class="finner"><div class="ffront"><picture><source srcset="../img/t_kiss.webp" type="image/webp"><img src="../img/t_kiss.jpg" width="480" height="480" alt="" loading="lazy" draggable="false"></picture></div></div></li><li class="fact"><div class="finner"><div class="ffront"><picture><source srcset="../img/t_pantheon.webp" type="image/webp"><img src="../img/t_pantheon.jpg" width="480" height="480" alt="" loading="lazy" draggable="false"></picture></div></div></li><li class="fact"><div class="finner"><div class="ffront"><picture><source srcset="../img/t_picnic.webp" type="image/webp"><img src="../img/t_picnic.jpg" width="480" height="480" alt="" loading="lazy" draggable="false"></picture></div></div></li></ul>
-</section>
 
 <footer class="end">
   <h2>See you there!</h2>
@@ -981,8 +978,8 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
   // Live forecast for the wedding week (Open-Meteo, no key), shown once it is within forecast range
   var box = document.getElementById("wx"); if (!box || !window.fetch) return;
   var start = new Date("2027-01-25T00:00:00+02:00"), now = new Date();
-  if ((start - now) / 86400000 > 14) return;
-  var url = "https://api.open-meteo.com/v1/forecast?latitude=32.08&longitude=34.78&timezone=Asia%2FJerusalem&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&start_date=2027-01-25&end_date=2027-01-31";
+  var wedWeek = (start - now) / 86400000 <= 14;
+  var url = "https://api.open-meteo.com/v1/forecast?latitude=32.08&longitude=34.78&timezone=Asia%2FJerusalem&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max" + (wedWeek ? "&start_date=2027-01-25&end_date=2027-01-31" : "&forecast_days=7");
   function icon(c){ return c <= 1 ? "☀️" : c <= 3 ? "⛅" : c <= 48 ? "🌫️" : c <= 67 || (c >= 80 && c <= 82) ? "🌧️" : c >= 95 ? "⛈️" : "☁️"; }
   fetch(url).then(function(r){ return r.json(); }).then(function(d){
     if (!d.daily || !d.daily.time) return;
@@ -990,10 +987,10 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
     var loc = lang === "he" ? "he-IL" : lang === "en" ? "en-GB" : "ru-RU";
     d.daily.time.forEach(function(t, i){
       var dt = new Date(t + "T12:00:00"), wd = dt.toLocaleDateString(loc, { weekday: "short" }), dd = dt.getDate();
-      html += '<li' + (dd === 28 ? ' class="wd"' : '') + '><span>' + wd + ' ' + dd + '</span><i>' + icon(d.daily.weather_code[i]) + '</i><b>' + Math.round(d.daily.temperature_2m_max[i]) + '°</b><small>' + Math.round(d.daily.temperature_2m_min[i]) + '° · ' + (d.daily.precipitation_probability_max[i] || 0) + '%</small></li>';
+      html += '<li' + (wedWeek && dd === 28 ? ' class="wd"' : '') + '><span>' + wd + ' ' + dd + '</span><i>' + icon(d.daily.weather_code[i]) + '</i><b>' + Math.round(d.daily.temperature_2m_max[i]) + '°</b><small>' + Math.round(d.daily.temperature_2m_min[i]) + '° · ' + (d.daily.precipitation_probability_max[i] || 0) + '%</small></li>';
     });
     ul.innerHTML = html;
-    document.getElementById("wxsub").textContent = box.getAttribute("data-live");
+    document.getElementById("wxsub").textContent = wedWeek ? box.getAttribute("data-live") : box.getAttribute("data-week");
   }).catch(function(){});
 })();
 (function(){
