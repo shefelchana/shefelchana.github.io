@@ -7,8 +7,20 @@ UID:wedding-2027-01-28-chana-alex@shefelchana.github.io
 DTSTAMP:20261125T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
-SUMMARY:החתונה של חנה ואלכס
-LOCATION:ישראל
-DESCRIPTION:ביומן זה בינתיים לכל היום.
+SUMMARY:Chana & Alex's Wedding 💍
+LOCATION:Israel · exact venue coming in January
+DESCRIPTION:Chana & Alex are getting married! 🤍\n\n📅 Thursday\, 28 Ja
+ nuary 2027\n📍 Israel — we'll send the exact time and venue in early J
+ anuary.\n\n💍 Jewish ceremony (chuppah) in Hebrew\; most of the evening 
+ is in Russian\, and nobody will be left out.\n👗 Dress code: festive but
+  relaxed. Olive\, sage and earthy tones are welcome.\n🎉 Day 2: casual p
+ arty on Friday\, 29 January.\n\nPlease RSVP and find all the details here:
+ \nhttps://shefelchana.github.io/wedding/he/
+URL:https://shefelchana.github.io/wedding/he/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Chana & Alex's wedding is in a week!
+TRIGGER:-P7D
+END:VALARM
 END:VEVENT
 END:VCALENDAR
