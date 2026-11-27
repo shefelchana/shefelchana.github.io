@@ -1092,7 +1092,8 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   });
   window.__burst = burst;
   var env = document.getElementById("env"), seen = false;
-  try { seen = localStorage.getItem("wedding-env") === "1"; } catch (e) {}
+  var personal = /[?&](g|env)=/.test(location.search);
+  try { seen = !personal && localStorage.getItem("wedding-env") === "1"; } catch (e) {}
   if (env && !seen) {
     env.hidden = false; document.documentElement.style.overflow = "hidden";
     var open = function(){
