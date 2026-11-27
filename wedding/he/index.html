@@ -646,6 +646,14 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 @keyframes bshake{0%,100%{transform:none}15%{transform:translate(-10px,4px) rotate(-8deg)}35%{transform:translate(9px,-5px) rotate(7deg)}55%{transform:translate(-7px,3px) rotate(-5deg)}75%{transform:translate(5px,-2px) rotate(3deg)}}
 @media (prefers-reduced-motion:reduce){.ball.shake{animation:none}}
 #ball::before{content:none!important}
+/* v32: wishes gallery */
+.wcards{list-style:none;margin:0;padding:10px 32px 18px;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 32px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.wcards::-webkit-scrollbar{display:none}
+.wcards li{flex:none;width:76%;max-width:340px;min-height:190px;scroll-snap-align:center;border-radius:18px;padding:30px 22px 22px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;font:500 17px/1.45 var(--body);color:var(--ink);box-shadow:0 6px 18px rgba(60,50,20,.12);transform:rotate(var(--r,0deg))}
+.wcards li::before{content:"“";position:absolute;top:2px;left:16px;font:700 56px/1 Georgia,serif;color:var(--olive);opacity:.35}
+.wcards li.w0{background:#fffaf0;--r:-1.2deg}.wcards li.w1{background:#eef0dc;--r:1deg}.wcards li.w2{background:#f8e6d3;--r:-.6deg}.wcards li.w3{background:#f3ead0;--r:1.4deg}
+.wcards li p{margin:0;max-height:260px;overflow:auto}
+#wishes::before{margin-bottom:14px!important}
 /* v10: guest cloud */
 .who-n{text-align:center;font:500 18px/1.3 var(--body);margin:6px 0 0!important}
 .who-n b{font:500 30px/1 var(--body);color:var(--olive)}
@@ -1007,6 +1015,14 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 
 
 
+<section id="wishes" hidden><div class="pad">
+  <h2>מילים חמות מהאורחים</h2>
+  <p class="lead2">מהטפסים, בלי שמות. תודה לכם!</p>
+</div>
+  <ol class="wcards" id="wcards" data-src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQu96erJPgCVvg0lfLoQDltSDtnLkwb3evgrL8Zl32biNTPrfvqumqvKFH4MwLQIwMbQtkvi1EujDoI/pub?gid=705797162&single=true&output=csv"></ol>
+  <div class="cnav"><button type="button" class="cbtn" id="wprev" aria-label="הקודם">‹</button><span id="wcount"></span><button type="button" class="cbtn" id="wnext" aria-label="הבא">›</button></div>
+</section>
+
 <section id="who"><div class="pad">
   <h2>מי כבר איתנו</h2>
   <p class="who-n" id="whon" hidden data-forms="{&quot;one&quot;:&quot;אורח&quot;,&quot;other&quot;:&quot;אורחים&quot;}"><span>כבר</span> <b></b> <span class="wf"></span><span class="who-on" hidden> ובאונליין <b></b></span></p>
@@ -1361,6 +1377,39 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   b.addEventListener("click", function(){ go(); }); document.getElementById("ballbtn").addEventListener("click", function(){ go(); });
   var qb = document.getElementById("ballq"), kinds = ["go", "wear", "shoe"];
   if (qb) qb.getAttribute("data-q").split("|").forEach(function(q, i){ var c = document.createElement("button"); c.type = "button"; c.className = "chip"; c.textContent = q; c.addEventListener("click", function(){ go(); }); qb.appendChild(c); });
+})();
+(function(){
+  // Wishes gallery
+  var list = document.getElementById("wcards"); if (!list) return;
+  var sec = document.getElementById("wishes"), cnt = document.getElementById("wcount");
+  function parse(t){
+    var rows = [], row = [], f = "", q = false;
+    for (var i = 0; i < t.length; i++) {
+      var c = t[i];
+      if (q) { if (c === '"') { if (t[i+1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+      else if (c === '"') q = true;
+      else if (c === ",") { row.push(f); f = ""; }
+      else if (c === "\n") { row.push(f); rows.push(row); row = []; f = ""; }
+      else if (c !== "\r") f += c;
+    }
+    if (f || row.length) { row.push(f); rows.push(row); }
+    return rows;
+  }
+  fetch(list.getAttribute("data-src"), { cache: "no-store" }).then(function(r){ return r.text(); }).then(function(t){
+    var ws = parse(t).slice(1).map(function(r){ return (r[0] || "").trim(); }).filter(function(w){ return w.length > 3; });
+    if (!ws.length) return;
+    for (var i = ws.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), x = ws[i]; ws[i] = ws[j]; ws[j] = x; }
+    ws.forEach(function(w, i){ var li = document.createElement("li"), p = document.createElement("p"); li.className = "w" + (i % 4); p.textContent = w; p.dir = "auto"; li.appendChild(p); list.appendChild(li); });
+    sec.hidden = false;
+    var items = list.children, rtl = document.documentElement.dir === "rtl";
+    function cur(){ var c = list.getBoundingClientRect(), best = 0, bd = 1e9; for (var k = 0; k < items.length; k++) { var r = items[k].getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - (c.left + c.width / 2)); if (d < bd) { bd = d; best = k; } } return best; }
+    function upd(){ cnt.textContent = (cur() + 1) + " / " + items.length; }
+    function go(d){ var k = Math.max(0, Math.min(items.length - 1, cur() + d)); items[k].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" }); }
+    document.getElementById("wprev").addEventListener("click", function(){ go(rtl ? 1 : -1); });
+    document.getElementById("wnext").addEventListener("click", function(){ go(rtl ? -1 : 1); });
+    list.addEventListener("scroll", function(){ clearTimeout(list._t); list._t = setTimeout(upd, 80); }, { passive: true });
+    upd();
+  }).catch(function(){});
 })();
 (function(){
   // Offline / online mode
