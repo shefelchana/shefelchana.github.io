@@ -634,6 +634,8 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .ct-s{margin:12px 0 0!important;font-size:14px;opacity:.75}
 
 /* v31: magic ball */
+.ballq{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.ballq .chip{cursor:pointer;font-size:15px}
 #ball{text-align:center}
 .ball{width:210px;height:210px;border-radius:50%;border:0;margin:14px auto 16px;display:grid;place-items:center;cursor:pointer;background:radial-gradient(circle at 32% 28%,#8a9a4a 0,#56662a 38%,#2f3a15 100%);box-shadow:0 14px 30px rgba(47,58,21,.35),inset -10px -14px 30px rgba(0,0,0,.25)}
 .ball .b-in{width:116px;height:116px;border-radius:50%;background:radial-gradient(circle at 45% 40%,#26300f,#141a07);display:grid;place-items:center;box-shadow:inset 0 0 0 3px rgba(227,163,63,.55)}
@@ -974,8 +976,9 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 
 <section id="ball"><div class="pad">
   <h2>Свадебный шар</h2>
-  <p class="lead2">Задай вопрос про свадьбу и встряхни шар.</p>
-  <button type="button" class="ball" id="ball8" data-ans="Однозначно да|Да, и потом потанцуй|Сначала поешь, потом решай|Спроси у Рамины|Звёзды говорят: туфли без каблука|Мазаль тов! Значит, да|Только после хупы|Скорее да, чем нет|Лехаим! Это да|Не сегодня, сегодня свадьба|Спроси ещё раз после тоста|Сердце уже знает ответ" aria-live="polite"><span class="b-in"><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></span></button>
+  <p class="lead2">Не можешь решить, идти или нет, что надеть, что выбрать? Задай вопрос и встряхни шар.</p>
+  <div class="ballq" id="ballq" data-q="Идти или не идти?|Что надеть?|Каблуки или кеды?"></div>
+  <button type="button" class="ball" id="ball8" data-go="Иди! Мы тебя ждём|Конечно идти, без тебя не то|Не думай, просто приходи|Сердце уже знает: идти" data-wear="То, в чём удобно танцевать|Наряд, который ты уже любишь|Светлое и уютное|Что-то, в чём хочется улыбаться|Возьми с собой тёплую кофту|Первое, что пришло в голову" data-shoe="Кеды! Будем танцевать|Каблуки, но возьми сменку|Удобная обувь, без вариантов|Что-то устойчивое: дорожки неровные" data-any="Выбирай сердцем|Возьми оба, решишь на месте|Первое, что пришло в голову|Однозначно да|Сначала поешь, потом решай|Мазаль тов! Значит, да" aria-live="polite"><span class="b-in"><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></span></button>
   <p><button type="button" class="btn" id="ballbtn">Встряхнуть</button></p>
 </div></section>
 
@@ -1348,13 +1351,16 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 (function(){
   // Magic ball
   var b = document.getElementById("ball8"); if (!b) return;
-  var txt = document.getElementById("balltxt"), ans = b.getAttribute("data-ans").split("|"), last = -1, busy = false;
-  function go(){
+  var txt = document.getElementById("balltxt"), last = "", busy = false;
+  function go(kind){
     if (busy) return; busy = true; b.classList.add("shake");
-    var i; do { i = Math.floor(Math.random() * ans.length); } while (i === last && ans.length > 1); last = i;
-    setTimeout(function(){ txt.textContent = ans[i]; b.classList.remove("shake"); busy = false; }, 700);
+    var ans = b.getAttribute("data-" + (kind || "any")).split("|"), a;
+    do { a = ans[Math.floor(Math.random() * ans.length)]; } while (a === last && ans.length > 1); last = a;
+    setTimeout(function(){ txt.textContent = a; b.classList.remove("shake"); busy = false; }, 700);
   }
-  b.addEventListener("click", go); document.getElementById("ballbtn").addEventListener("click", go);
+  b.addEventListener("click", function(){ go(); }); document.getElementById("ballbtn").addEventListener("click", function(){ go(); });
+  var qb = document.getElementById("ballq"), kinds = ["go", "wear", "shoe"];
+  if (qb) qb.getAttribute("data-q").split("|").forEach(function(q, i){ var c = document.createElement("button"); c.type = "button"; c.className = "chip"; c.textContent = q; c.addEventListener("click", function(){ go(kinds[i]); }); qb.appendChild(c); });
 })();
 (function(){
   // Offline / online mode

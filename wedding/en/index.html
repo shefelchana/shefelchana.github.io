@@ -634,6 +634,8 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .ct-s{margin:12px 0 0!important;font-size:14px;opacity:.75}
 
 /* v31: magic ball */
+.ballq{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.ballq .chip{cursor:pointer;font-size:15px}
 #ball{text-align:center}
 .ball{width:210px;height:210px;border-radius:50%;border:0;margin:14px auto 16px;display:grid;place-items:center;cursor:pointer;background:radial-gradient(circle at 32% 28%,#8a9a4a 0,#56662a 38%,#2f3a15 100%);box-shadow:0 14px 30px rgba(47,58,21,.35),inset -10px -14px 30px rgba(0,0,0,.25)}
 .ball .b-in{width:116px;height:116px;border-radius:50%;background:radial-gradient(circle at 45% 40%,#26300f,#141a07);display:grid;place-items:center;box-shadow:inset 0 0 0 3px rgba(227,163,63,.55)}
@@ -974,8 +976,9 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 
 <section id="ball"><div class="pad">
   <h2>Wedding magic ball</h2>
-  <p class="lead2">Ask a question about the wedding and shake the ball.</p>
-  <button type="button" class="ball" id="ball8" data-ans="Definitely yes|Yes, and then dance|Eat first, decide later|Ask Ramina|The stars say: flat shoes|Mazal tov! That&#x27;s a yes|Only after the chuppah|More yes than no|L&#x27;chaim! That&#x27;s a yes|Not today, today is the wedding|Ask again after the toast|Your heart already knows" aria-live="polite"><span class="b-in"><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></span></button>
+  <p class="lead2">Can't decide whether to come, what to wear, what to pick? Ask a question and shake the ball.</p>
+  <div class="ballq" id="ballq" data-q="Should I go?|What should I wear?|Heels or sneakers?"></div>
+  <button type="button" class="ball" id="ball8" data-go="Go! We&#x27;re waiting for you|Of course go, it won&#x27;t be the same without you|Don&#x27;t overthink it, just come|Your heart knows: go" data-wear="Whatever you can dance in|The outfit you already love|Something light and cosy|Something that makes you smile|Bring a warm layer|The first thing that came to mind" data-shoe="Sneakers! We&#x27;ll be dancing|Heels, but bring a spare pair|Comfy shoes, no question|Something steady: the paths are uneven" data-any="Choose with your heart|Take both, decide there|The first thing that came to mind|Definitely yes|Eat first, decide later|Mazal tov! That&#x27;s a yes" aria-live="polite"><span class="b-in"><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></span></button>
   <p><button type="button" class="btn" id="ballbtn">Shake</button></p>
 </div></section>
 
@@ -1348,13 +1351,16 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 (function(){
   // Magic ball
   var b = document.getElementById("ball8"); if (!b) return;
-  var txt = document.getElementById("balltxt"), ans = b.getAttribute("data-ans").split("|"), last = -1, busy = false;
-  function go(){
+  var txt = document.getElementById("balltxt"), last = "", busy = false;
+  function go(kind){
     if (busy) return; busy = true; b.classList.add("shake");
-    var i; do { i = Math.floor(Math.random() * ans.length); } while (i === last && ans.length > 1); last = i;
-    setTimeout(function(){ txt.textContent = ans[i]; b.classList.remove("shake"); busy = false; }, 700);
+    var ans = b.getAttribute("data-" + (kind || "any")).split("|"), a;
+    do { a = ans[Math.floor(Math.random() * ans.length)]; } while (a === last && ans.length > 1); last = a;
+    setTimeout(function(){ txt.textContent = a; b.classList.remove("shake"); busy = false; }, 700);
   }
-  b.addEventListener("click", go); document.getElementById("ballbtn").addEventListener("click", go);
+  b.addEventListener("click", function(){ go(); }); document.getElementById("ballbtn").addEventListener("click", function(){ go(); });
+  var qb = document.getElementById("ballq"), kinds = ["go", "wear", "shoe"];
+  if (qb) qb.getAttribute("data-q").split("|").forEach(function(q, i){ var c = document.createElement("button"); c.type = "button"; c.className = "chip"; c.textContent = q; c.addEventListener("click", function(){ go(kinds[i]); }); qb.appendChild(c); });
 })();
 (function(){
   // Offline / online mode
