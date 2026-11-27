@@ -1016,7 +1016,7 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 
 <section id="wishes" hidden><div class="pad">
   <h2>מילים חמות מהאורחים</h2>
-  <p class="lead2">מהטפסים, בלי שמות. תודה לכם!</p>
+  <p class="lead2">בלי שמות. תודה לכם!</p>
 </div>
   <ol class="wcards" id="wcards" data-src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQu96erJPgCVvg0lfLoQDltSDtnLkwb3evgrL8Zl32biNTPrfvqumqvKFH4MwLQIwMbQtkvi1EujDoI/pub?gid=705797162&single=true&output=csv"></ol>
   <div class="cnav"><button type="button" class="cbtn" id="wprev" aria-label="הקודם">‹</button><span id="wcount"></span><button type="button" class="cbtn" id="wnext" aria-label="הבא">›</button></div>
@@ -1397,6 +1397,7 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   fetch(list.getAttribute("data-src"), { cache: "no-store" }).then(function(r){ return r.text(); }).then(function(t){
     var ws = parse(t).slice(1).map(function(r){ return (r[0] || "").trim(); }).filter(function(w){ return w.length > 3; });
     if (!ws.length) return;
+    ws = ws.concat(["Мазаль тов!", "Горько!", "Любви и смеха!", "Счастья вам!", "Ждём танцев!", "Будьте счастливы!", "Обнимаю крепко!", "Ура! Наконец-то!", "Mazal tov!", "So happy for you!", "Love you both!", "Can't wait to dance!", "מזל טוב!", "אוהבים אתכם!", "שיהיה בשעה טובה!", "המון אושר!"]);
     for (var i = ws.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), x = ws[i]; ws[i] = ws[j]; ws[j] = x; }
     ws.forEach(function(w, i){ var li = document.createElement("li"), p = document.createElement("p"); li.className = "w" + (i % 4); p.textContent = w; p.dir = "auto"; li.appendChild(p); list.appendChild(li); });
     sec.hidden = false;
