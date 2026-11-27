@@ -637,12 +637,12 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .ballq{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
 .ballq .chip{cursor:pointer;font-size:15px}
 #ball{text-align:center}
-.ball{width:210px;height:210px;border-radius:50%;border:0;margin:14px auto 16px;display:grid;place-items:center;cursor:pointer;background:radial-gradient(circle at 32% 28%,#8a9a4a 0,#56662a 38%,#2f3a15 100%);box-shadow:0 14px 30px rgba(47,58,21,.35),inset -10px -14px 30px rgba(0,0,0,.25)}
-.ball .b-in{width:116px;height:116px;border-radius:50%;background:radial-gradient(circle at 45% 40%,#26300f,#141a07);display:grid;place-items:center;box-shadow:inset 0 0 0 3px rgba(227,163,63,.55)}
-.ball .b-tri{width:96px;height:96px;display:grid;place-items:center;transition:opacity .35s,transform .5s}
-.ball .b-txt{color:#fbe9c3;font:600 13.5px/1.25 var(--body);padding:0 6px;max-width:92px}
+.ball{position:relative;width:260px;height:260px;border:0;padding:0;margin:6px auto 10px;display:block;background:none;cursor:pointer}
+.ball picture,.ball img{display:block;width:100%;height:100%}
+.ball .b-tri{position:absolute;left:49.4%;top:46.6%;width:34%;height:34%;transform:translate(-50%,-50%);display:grid;place-items:center;transition:opacity .35s}
+.ball .b-txt{color:#fbe9c3;font:600 14px/1.25 var(--body);text-align:center}
 .ball.shake{animation:bshake .7s ease}
-.ball.shake .b-tri{opacity:0;transform:scale(.6) rotate(-20deg)}
+.ball.shake .b-tri{opacity:0}
 @keyframes bshake{0%,100%{transform:none}15%{transform:translate(-10px,4px) rotate(-8deg)}35%{transform:translate(9px,-5px) rotate(7deg)}55%{transform:translate(-7px,3px) rotate(-5deg)}75%{transform:translate(5px,-2px) rotate(3deg)}}
 @media (prefers-reduced-motion:reduce){.ball.shake{animation:none}}
 #ball::before{content:none!important}
@@ -927,7 +927,7 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   <h2>כדור הקסם של החתונה</h2>
   <p class="lead2">לא מחליטים אם לבוא, מה ללבוש, מה לבחור? שאלו שאלה ונערו את הכדור.</p>
   <div class="ballq" id="ballq" data-q="ללכת או לא?|מה ללבוש?|עקבים או סניקרס?"></div>
-  <button type="button" class="ball" id="ball8" data-go="לבוא! אנחנו מחכים לכם|ברור שלבוא, בלעדיכם זה לא אותו דבר|אל תחשבו יותר מדי, פשוט תבואו|הלב כבר יודע: לבוא" data-wear="מה שנוח לרקוד בו|הבגד שאתם כבר אוהבים|משהו בהיר ונעים|משהו שבא לכם לחייך בו|קחו משהו חם|הדבר הראשון שעלה לכם בראש" data-shoe="סניקרס! הולכים לרקוד|עקבים, אבל קחו זוג להחלפה|נעליים נוחות, בלי ספק|משהו יציב: השבילים לא ישרים" data-any="תבחרו עם הלב|קחו את שניהם ותחליטו שם|הדבר הראשון שעלה לכם בראש|בטח שכן|קודם לאכול, אחר כך להחליט|מזל טוב! זה כן" aria-live="polite"><span class="b-in"><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></span></button>
+  <button type="button" class="ball" id="ball8" data-go="לבוא! אנחנו מחכים לכם|ברור שלבוא, בלעדיכם זה לא אותו דבר|אל תחשבו יותר מדי, פשוט תבואו|הלב כבר יודע: לבוא" data-wear="מה שנוח לרקוד בו|הבגד שאתם כבר אוהבים|משהו בהיר ונעים|משהו שבא לכם לחייך בו|קחו משהו חם|הדבר הראשון שעלה לכם בראש" data-shoe="סניקרס! הולכים לרקוד|עקבים, אבל קחו זוג להחלפה|נעליים נוחות, בלי ספק|משהו יציב: השבילים לא ישרים" data-any="תבחרו עם הלב|קחו את שניהם ותחליטו שם|הדבר הראשון שעלה לכם בראש|בטח שכן|קודם לאכול, אחר כך להחליט|מזל טוב! זה כן" aria-live="polite"><picture><source srcset="../img/g_ball.webp" type="image/webp"><img src="../img/g_ball.png" width="600" height="600" loading="lazy" alt=""></picture><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></button>
   <p><button type="button" class="btn" id="ballbtn">לנער</button></p>
 </div></section>
 

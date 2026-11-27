@@ -637,12 +637,12 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .ballq{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
 .ballq .chip{cursor:pointer;font-size:15px}
 #ball{text-align:center}
-.ball{width:210px;height:210px;border-radius:50%;border:0;margin:14px auto 16px;display:grid;place-items:center;cursor:pointer;background:radial-gradient(circle at 32% 28%,#8a9a4a 0,#56662a 38%,#2f3a15 100%);box-shadow:0 14px 30px rgba(47,58,21,.35),inset -10px -14px 30px rgba(0,0,0,.25)}
-.ball .b-in{width:116px;height:116px;border-radius:50%;background:radial-gradient(circle at 45% 40%,#26300f,#141a07);display:grid;place-items:center;box-shadow:inset 0 0 0 3px rgba(227,163,63,.55)}
-.ball .b-tri{width:96px;height:96px;display:grid;place-items:center;transition:opacity .35s,transform .5s}
-.ball .b-txt{color:#fbe9c3;font:600 13.5px/1.25 var(--body);padding:0 6px;max-width:92px}
+.ball{position:relative;width:260px;height:260px;border:0;padding:0;margin:6px auto 10px;display:block;background:none;cursor:pointer}
+.ball picture,.ball img{display:block;width:100%;height:100%}
+.ball .b-tri{position:absolute;left:49.4%;top:46.6%;width:34%;height:34%;transform:translate(-50%,-50%);display:grid;place-items:center;transition:opacity .35s}
+.ball .b-txt{color:#fbe9c3;font:600 14px/1.25 var(--body);text-align:center}
 .ball.shake{animation:bshake .7s ease}
-.ball.shake .b-tri{opacity:0;transform:scale(.6) rotate(-20deg)}
+.ball.shake .b-tri{opacity:0}
 @keyframes bshake{0%,100%{transform:none}15%{transform:translate(-10px,4px) rotate(-8deg)}35%{transform:translate(9px,-5px) rotate(7deg)}55%{transform:translate(-7px,3px) rotate(-5deg)}75%{transform:translate(5px,-2px) rotate(3deg)}}
 @media (prefers-reduced-motion:reduce){.ball.shake{animation:none}}
 #ball::before{content:none!important}
@@ -927,7 +927,7 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   <h2>Wedding magic ball</h2>
   <p class="lead2">Can't decide whether to come, what to wear, what to pick? Ask a question and shake the ball.</p>
   <div class="ballq" id="ballq" data-q="Should I go?|What should I wear?|Heels or sneakers?"></div>
-  <button type="button" class="ball" id="ball8" data-go="Go! We&#x27;re waiting for you|Of course go, it won&#x27;t be the same without you|Don&#x27;t overthink it, just come|Your heart knows: go" data-wear="Whatever you can dance in|The outfit you already love|Something light and cosy|Something that makes you smile|Bring a warm layer|The first thing that came to mind" data-shoe="Sneakers! We&#x27;ll be dancing|Heels, but bring a spare pair|Comfy shoes, no question|Something steady: the paths are uneven" data-any="Choose with your heart|Take both, decide there|The first thing that came to mind|Definitely yes|Eat first, decide later|Mazal tov! That&#x27;s a yes" aria-live="polite"><span class="b-in"><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></span></button>
+  <button type="button" class="ball" id="ball8" data-go="Go! We&#x27;re waiting for you|Of course go, it won&#x27;t be the same without you|Don&#x27;t overthink it, just come|Your heart knows: go" data-wear="Whatever you can dance in|The outfit you already love|Something light and cosy|Something that makes you smile|Bring a warm layer|The first thing that came to mind" data-shoe="Sneakers! We&#x27;ll be dancing|Heels, but bring a spare pair|Comfy shoes, no question|Something steady: the paths are uneven" data-any="Choose with your heart|Take both, decide there|The first thing that came to mind|Definitely yes|Eat first, decide later|Mazal tov! That&#x27;s a yes" aria-live="polite"><picture><source srcset="../img/g_ball.webp" type="image/webp"><img src="../img/g_ball.png" width="600" height="600" loading="lazy" alt=""></picture><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></button>
   <p><button type="button" class="btn" id="ballbtn">Shake</button></p>
 </div></section>
 
