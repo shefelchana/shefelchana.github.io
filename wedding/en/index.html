@@ -647,11 +647,10 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 @media (prefers-reduced-motion:reduce){.ball.shake{animation:none}}
 #ball::before{content:none!important}
 /* v32: wishes gallery */
-.wcards{list-style:none;margin:0;padding:10px 32px 18px;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 32px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.wcards{list-style:none;margin:0;padding:6px 32px 12px;display:flex;align-items:center;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 32px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .wcards::-webkit-scrollbar{display:none}
-.wcards li{flex:none;width:76%;max-width:340px;min-height:190px;scroll-snap-align:center;border-radius:18px;padding:30px 22px 22px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;font:500 17px/1.45 var(--body);color:var(--ink);box-shadow:0 6px 18px rgba(60,50,20,.12);transform:rotate(var(--r,0deg))}
-.wcards li::before{content:"“";position:absolute;top:2px;left:16px;font:700 56px/1 Georgia,serif;color:var(--olive);opacity:.35}
-.wcards li.w0{background:#fffaf0;--r:-1.2deg}.wcards li.w1{background:#eef0dc;--r:1deg}.wcards li.w2{background:#f8e6d3;--r:-.6deg}.wcards li.w3{background:#f3ead0;--r:1.4deg}
+.wcards li{flex:none;width:72%;max-width:300px;min-height:120px;scroll-snap-align:center;border-radius:14px;padding:22px 18px 16px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;font:400 15px/1.45 var(--body);color:var(--muted);background:rgba(255,250,240,.55);border:1px solid rgba(111,127,46,.18)}
+.wcards li::before{content:"“";position:absolute;top:4px;left:12px;font:700 34px/1 Georgia,serif;color:var(--olive);opacity:.25}
 .wcards li p{margin:0;max-height:260px;overflow:auto}
 #wishes::before{margin-bottom:14px!important}
 /* v10: guest cloud */
