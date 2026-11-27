@@ -1392,7 +1392,7 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
     function upd(){ fab.classList.toggle("off", heroIn || formIn || endIn); }
     new IntersectionObserver(function(es){ heroIn = es[0].isIntersecting; upd(); }).observe(hero);
     new IntersectionObserver(function(es){ formIn = es[0].isIntersecting; upd(); }).observe(form);
-    var tail = [document.getElementById("wall"), document.querySelector(".end")].filter(Boolean), tin = {};
+    var tail = [document.getElementById("who"), document.getElementById("contact"), document.querySelector(".end")].filter(Boolean), tin = {};
     var tio = new IntersectionObserver(function(es){ es.forEach(function(e){ tin[e.target.id || "end"] = e.isIntersecting; }); endIn = Object.keys(tin).some(function(k){ return tin[k]; }); upd(); });
     tail.forEach(function(el){ tio.observe(el); });
   }
