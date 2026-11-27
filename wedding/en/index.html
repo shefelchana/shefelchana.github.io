@@ -1075,19 +1075,19 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   });
   window.__burst = burst;
   var env = document.getElementById("env"), seen = false;
-  var personal = /[?&](g|env)=/.test(location.search);
-  try { seen = !personal && localStorage.getItem("wedding-env") === "1"; } catch (e) {}
+  var qs = new URLSearchParams(location.search), ekey = "wedding-env" + (qs.get("g") ? ":" + qs.get("g").trim().toLowerCase() : "");
+  try { seen = !qs.has("env") && localStorage.getItem(ekey) === "1"; } catch (e) {}
   if (env && !seen) {
     env.hidden = false; document.documentElement.style.overflow = "hidden";
     var open = function(){
       document.getElementById("envbox").classList.add("open");
-      try { localStorage.setItem("wedding-env", "1"); } catch (e) {}
+      try { localStorage.setItem(ekey, "1"); } catch (e) {}
       setTimeout(function(){ env.classList.add("gone"); document.documentElement.style.overflow = ""; setTimeout(function(){ burst(30, true); }, 500); }, 1700);
       setTimeout(function(){ env.remove(); }, 2500);
     };
     document.getElementById("seal").addEventListener("click", open);
     document.getElementById("envskip").addEventListener("click", function(){
-      try { localStorage.setItem("wedding-env", "1"); } catch (e) {}
+      try { localStorage.setItem(ekey, "1"); } catch (e) {}
       env.classList.add("gone"); document.documentElement.style.overflow = ""; setTimeout(function(){ env.remove(); }, 700);
     });
   } else {
