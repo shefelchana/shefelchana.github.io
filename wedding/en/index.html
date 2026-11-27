@@ -1397,7 +1397,7 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   fetch(list.getAttribute("data-src"), { cache: "no-store" }).then(function(r){ return r.text(); }).then(function(t){
     var ws = parse(t).slice(1).map(function(r){ return (r[0] || "").trim(); }).filter(function(w){ return w.length > 3; });
     if (!ws.length) return;
-    ws = ws.concat(["Мазаль тов!", "Горько!", "Любви и смеха!", "Счастья вам!", "Ждём танцев!", "Будьте счастливы!", "Обнимаю крепко!", "Ура! Наконец-то!", "Mazal tov!", "So happy for you!", "Love you both!", "Can't wait to dance!", "מזל טוב!", "אוהבים אתכם!", "שיהיה בשעה טובה!", "המון אושר!"]);
+    ws = ws.concat(["Мазаль тов!", "Любви и смеха!", "Ждём танцев!", "Счастья вам!", "So happy for you!", "מזל טוב!"]);
     for (var i = ws.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), x = ws[i]; ws[i] = ws[j]; ws[j] = x; }
     ws.forEach(function(w, i){ var li = document.createElement("li"), p = document.createElement("p"); li.className = "w" + (i % 4); p.textContent = w; p.dir = "auto"; li.appendChild(p); list.appendChild(li); });
     sec.hidden = false;
