@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Chana and Alex//Wedding//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:friday-2027-01-29-chana-alex@shefelchana.github.io
+DTSTAMP:20261128T000000Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270130
+SUMMARY:Friday with Chana & Alex
+LOCATION:Tel Aviv · details coming in January
+DESCRIPTION:Пятница после свадьбы: кофе утром 
+ или бар в Тель-Авиве. Время и место пришл
+ ём в январе.\nhttps://shefelchana.github.io/wedding/
+END:VEVENT
+END:VCALENDAR
