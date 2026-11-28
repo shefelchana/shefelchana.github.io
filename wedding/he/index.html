@@ -664,6 +664,13 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .wcards li::before{content:"“";position:absolute;top:4px;left:12px;font:700 34px/1 Georgia,serif;color:var(--olive);opacity:.25}
 .wcards li p{margin:0;max-height:260px;overflow:auto}
 #wishes::before{margin-bottom:14px!important}
+/* v34: outfit ideas */
+.lk-h{margin:18px 0 8px;font:600 1rem/1.2 var(--body);color:var(--ink)}
+.looks{list-style:none;margin:0 -14px;padding:4px 14px 10px;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.looks::-webkit-scrollbar{display:none}
+.looks li{flex:none;width:72%;max-width:280px;scroll-snap-align:center}
+.looks img{display:block;width:100%;height:auto;border-radius:12px}
+.looks p{margin:8px 2px 0;font-size:.875rem;line-height:1.35;color:var(--muted)}
 /* v10: guest cloud */
 .who-n{text-align:center;font:500 18px/1.3 var(--body);margin:6px 0 0!important}
 .who-n b{font:500 30px/1 var(--body);color:var(--olive)}
@@ -971,7 +978,11 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
       <div class="chips-h">עדיף שלא</div><ul class="chips no"><li>מכנסיים קצרים</li><li>טישירט ובגדי ספורט</li><li>כפכפים וסנדלים</li></ul>
     </div>
   </div>
-  <div class="box tilt"><h3>אם בא לכם להתאים</h3><div class="sw"><span><i style="background:#5e6e24"></i>זית</span><span><i style="background:#9aa57a"></i>מרווה</span><span><i style="background:#b8643f"></i>טרקוטה</span><span><i style="background:#c99a3a"></i>חרדל</span><span><i style="background:#d9c3a0"></i>בז׳</span><span><i style="background:#4a3426"></i>שוקולד</span></div></div>
+  <div class="box tilt"><h3>אם בא לכם להתאים</h3><div class="sw"><span><i style="background:#5e6e24"></i>זית</span><span><i style="background:#9aa57a"></i>מרווה</span><span><i style="background:#b8643f"></i>טרקוטה</span><span><i style="background:#c99a3a"></i>חרדל</span><span><i style="background:#d9c3a0"></i>בז׳</span><span><i style="background:#4a3426"></i>שוקולד</span></div>
+    <h4 class="lk-h">רעיונות להשראה</h4>
+    <ol class="looks" id="looks"><li><picture><source srcset="../img/look1.webp" type="image/webp"><img src="../img/look1.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>שמלת סליפ בצבע זית מעל חולצה ארוכה · חליפה חומה עם פולו סרוג</p></li><li><picture><source srcset="../img/look2.webp" type="image/webp"><img src="../img/look2.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>חצאית טרקוטה וסוודר נעים · גולף מתחת לז׳קט</p></li><li><picture><source srcset="../img/look3.webp" type="image/webp"><img src="../img/look3.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>חולצה בצבע שמנת וחצאית סאטן בצבע זית · קרדיגן ומכנסיים</p></li><li><picture><source srcset="../img/look4.webp" type="image/webp"><img src="../img/look4.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>שמלה סרוגה ומעיל טרנץ׳, אפשר עם סניקרס · סוודר פולו עם רוכסן</p></li><li><picture><source srcset="../img/look5.webp" type="image/webp"><img src="../img/look5.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>שמלת מקסי בוורוד עתיק · חליפה בהירה עם חולצה תואמת</p></li><li><picture><source srcset="../img/look6.webp" type="image/webp"><img src="../img/look6.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>שמלה סרוגה ומעיל טרקוטה · ז׳קט בז׳ וגולף</p></li><li><picture><source srcset="../img/look7.webp" type="image/webp"><img src="../img/look7.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>שמלת חולצה ולופרים · ג׳קט בומבר, ג׳ינס וסניקרס לבנים</p></li></ol>
+    <div class="cnav"><button type="button" class="cbtn" id="lprev" aria-label="הקודם">‹</button><span id="lcount"></span><button type="button" class="cbtn" id="lnext" aria-label="הבא">›</button></div>
+  </div>
   <div class="wxbox" id="wx" data-lang="he" data-norm="מזג אוויר רגיל בסוף ינואר. שבועיים לפני החתונה תופיע כאן התחזית." data-live="תחזית לשבוע החתונה" data-week="תחזית לשבוע הקרוב">
     <h3>מזג האוויר במרכז</h3>
     <p class="wx-sub" id="wxsub">מזג אוויר רגיל בסוף ינואר. שבועיים לפני החתונה תופיע כאן התחזית.</p>
@@ -1432,11 +1443,23 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
     function cur(){ var c = list.getBoundingClientRect(), best = 0, bd = 1e9; for (var k = 0; k < items.length; k++) { var r = items[k].getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - (c.left + c.width / 2)); if (d < bd) { bd = d; best = k; } } return best; }
     function upd(){ cnt.textContent = (cur() + 1) + " / " + items.length; }
     function go(d){ var k = Math.max(0, Math.min(items.length - 1, cur() + d)); items[k].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" }); }
-    document.getElementById("wprev").addEventListener("click", function(){ go(rtl ? 1 : -1); });
-    document.getElementById("wnext").addEventListener("click", function(){ go(rtl ? -1 : 1); });
+    document.getElementById("wprev").addEventListener("click", function(){ go(-1); });
+    document.getElementById("wnext").addEventListener("click", function(){ go(1); });
     list.addEventListener("scroll", function(){ clearTimeout(list._t); list._t = setTimeout(upd, 80); }, { passive: true });
     upd();
   }).catch(function(){});
+})();
+(function(){
+  // Outfit ideas carousel
+  var list = document.getElementById("looks"); if (!list) return;
+  var items = list.children, cnt = document.getElementById("lcount"), rtl = document.documentElement.dir === "rtl";
+  function cur(){ var c = list.getBoundingClientRect(), best = 0, bd = 1e9; for (var k = 0; k < items.length; k++) { var r = items[k].getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - (c.left + c.width / 2)); if (d < bd) { bd = d; best = k; } } return best; }
+  function upd(){ cnt.textContent = (cur() + 1) + " / " + items.length; }
+  function go(d){ var k = Math.max(0, Math.min(items.length - 1, cur() + d)); items[k].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" }); }
+  document.getElementById("lprev").addEventListener("click", function(){ go(-1); });
+  document.getElementById("lnext").addEventListener("click", function(){ go(1); });
+  list.addEventListener("scroll", function(){ clearTimeout(list._t); list._t = setTimeout(upd, 80); }, { passive: true });
+  upd();
 })();
 (function(){
   // Offline / online mode
