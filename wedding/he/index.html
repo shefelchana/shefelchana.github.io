@@ -711,6 +711,8 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 #pack .ck{flex-direction:row!important;align-items:center!important}
 #pack .ckbar{justify-content:center}
 #pack .ckt{flex:1 1 auto!important;min-width:120px;max-width:220px}
+.ckseg{margin:14px auto 0}
+#ck[data-show="w"] .ck-m,#ck[data-show="m"] .ck-w{display:none!important}
 #pack .ck li{display:block!important;width:auto!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
 #pack .ck li::before{content:none!important}
 .ckb{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--olive);background:#fffaf0;color:var(--ink);font:500 14px/1.2 var(--body);cursor:pointer;transition:background .2s,color .2s}
@@ -1068,8 +1070,9 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 <section id="pack" class="only-off"><div class="pad">
   <h2>מה לקחת איתכם</h2>
   <p class="lead2">בערב בערך 10 מעלות ויכול לרדת גשם. לחצו על מה שכבר ארזתם.</p>
-  <div class="ckbar"><span id="ckn">0</span> מתוך 8<span class="ckt"><span id="ckfill"></span></span></div>
-  <ul class="ck" id="ck"><li><button type="button" class="ckb" data-k="1" aria-pressed="false">שכבה חמה</button></li><li><button type="button" class="ckb" data-k="2" aria-pressed="false">מטרייה</button></li><li><button type="button" class="ckb" data-k="3" aria-pressed="false">צעיף לחופה</button></li><li><button type="button" class="ckb" data-k="4" aria-pressed="false">נעליים להחלפה</button></li><li><button type="button" class="ckb" data-k="5" aria-pressed="false">מעטפה או מתנה</button></li><li><button type="button" class="ckb" data-k="6" aria-pressed="false">טלפון טעון</button></li><li><button type="button" class="ckb" data-k="7" aria-pressed="false">כיפה משלכם</button></li><li><button type="button" class="ckb" data-k="8" aria-pressed="false">מצב רוח טוב</button></li></ul>
+  <div class="seg ckseg" role="group"><button type="button" class="sbtn" data-ck="w" aria-pressed="true">לנשים</button><button type="button" class="sbtn" data-ck="m" aria-pressed="false">לגברים</button></div>
+  <div class="ckbar"><span id="ckn">0</span> מתוך <span id="ckall">8</span><span class="ckt"><span id="ckfill"></span></span></div>
+  <ul class="ck" id="ck" data-show="w"><li class="ck-c"><button type="button" class="ckb" data-k="1" aria-pressed="false">שכבה חמה</button></li><li class="ck-c"><button type="button" class="ckb" data-k="2" aria-pressed="false">מטרייה</button></li><li class="ck-w"><button type="button" class="ckb" data-k="3" aria-pressed="false">צעיף לחופה</button></li><li class="ck-w"><button type="button" class="ckb" data-k="4" aria-pressed="false">נעליים להחלפה</button></li><li class="ck-w"><button type="button" class="ckb" data-k="9" aria-pressed="false">גרביונים להחלפה</button></li><li class="ck-m"><button type="button" class="ckb" data-k="7" aria-pressed="false">כיפה משלכם</button></li><li class="ck-m"><button type="button" class="ckb" data-k="10" aria-pressed="false">ז׳קט לחמם את בת הזוג</button></li><li class="ck-m"><button type="button" class="ckb" data-k="11" aria-pressed="false">מטען נייד</button></li><li class="ck-c"><button type="button" class="ckb" data-k="5" aria-pressed="false">מעטפה או מתנה</button></li><li class="ck-c"><button type="button" class="ckb" data-k="6" aria-pressed="false">טלפון טעון</button></li><li class="ck-c"><button type="button" class="ckb" data-k="8" aria-pressed="false">מצב רוח טוב</button></li></ul>
   <p class="ck-done" id="ckdone" hidden>הכול ארוז, מחכים לכם!</p>
 </div></section>
 
@@ -1553,11 +1556,20 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   var list = document.getElementById("ck"); if (!list) return;
   var KEY = "wedding-pack", st = {};
   try { st = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
-  var bs = list.querySelectorAll(".ckb"), done = document.getElementById("ckdone"), n = document.getElementById("ckn"), fill = document.getElementById("ckfill");
-  function upd(){ var c = 0; bs.forEach(function(b){ if (b.getAttribute("aria-pressed") === "true") c++; }); n.textContent = c; fill.style.width = (c / bs.length * 100) + "%"; done.hidden = c < bs.length; }
+  var bs = list.querySelectorAll(".ckb"), done = document.getElementById("ckdone"), n = document.getElementById("ckn"), all = document.getElementById("ckall"), fill = document.getElementById("ckfill");
+  function vis(b){ var li = b.parentNode, sh = list.getAttribute("data-show"); return li.classList.contains("ck-c") || li.classList.contains("ck-" + sh); }
+  function upd(){ var c = 0, t = 0; bs.forEach(function(b){ if (!vis(b)) return; t++; if (b.getAttribute("aria-pressed") === "true") c++; }); n.textContent = c; all.textContent = t; fill.style.width = (t ? c / t * 100 : 0) + "%"; done.hidden = c < t; }
   bs.forEach(function(b){
     var k = b.getAttribute("data-k"); b.setAttribute("aria-pressed", st[k] ? "true" : "false");
     b.addEventListener("click", function(){ var on = b.getAttribute("aria-pressed") !== "true"; b.setAttribute("aria-pressed", on ? "true" : "false"); st[k] = on; try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} upd(); });
+  });
+  try { if (st._who) list.setAttribute("data-show", st._who); } catch (e) {}
+  document.querySelectorAll(".sbtn[data-ck]").forEach(function(x){
+    x.setAttribute("aria-pressed", x.getAttribute("data-ck") === list.getAttribute("data-show") ? "true" : "false");
+    x.addEventListener("click", function(){
+      list.setAttribute("data-show", x.getAttribute("data-ck")); st._who = x.getAttribute("data-ck"); try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {}
+      document.querySelectorAll(".sbtn[data-ck]").forEach(function(y){ y.setAttribute("aria-pressed", y === x ? "true" : "false"); }); upd();
+    });
   });
   upd();
 })();
