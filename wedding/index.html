@@ -666,6 +666,15 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .wcards li::before{content:"“";position:absolute;top:4px;left:12px;font:700 34px/1 Georgia,serif;color:var(--olive);opacity:.25}
 .wcards li p{margin:0;max-height:260px;overflow:auto}
 #wishes::before{margin-bottom:14px!important}
+/* v38: colour tips */
+.sw .swb{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--muted);font:inherit;font-size:14px}
+.sw .swb i{width:40px;height:40px;border-radius:46% 54% 50% 50%/52% 46% 54% 48%;border:1.5px solid var(--ink);transition:transform .2s,box-shadow .2s}
+.sw .swb[aria-pressed="true"] i{transform:scale(1.12);box-shadow:0 0 0 3px #fffaf0,0 0 0 5px var(--olive)}
+.sw .swb[aria-pressed="true"]{color:var(--ink);font-weight:600}
+.swtip{margin-top:12px;padding:12px 14px;border-radius:14px;background:rgba(255,250,240,.7);border:1px solid rgba(111,127,46,.2);font-size:.9rem;line-height:1.45;min-height:64px}
+.swtip p{margin:0 0 6px}.swtip p:last-child{margin:0}
+.swtip b{color:var(--ink)}
+.swt-hint{color:var(--muted)}
 /* v34: outfit ideas */
 .lk-go{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px 0 4px;padding:12px 18px;border-radius:999px;border:1.5px solid var(--olive);color:var(--olive);font-weight:600;text-decoration:none}
 .lk-go::after{content:"↓"}
@@ -985,7 +994,8 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
       <a class="lk-go" href="#looks-h">Примеры образов</a>
     </div>
   </div>
-  <div class="box tilt"><h3>Если хочешь в тон</h3><div class="sw"><span><i style="background:#5e6e24"></i>олива</span><span><i style="background:#9aa57a"></i>шалфей</span><span><i style="background:#b8643f"></i>терракота</span><span><i style="background:#c99a3a"></i>горчица</span><span><i style="background:#d9c3a0"></i>бежевый</span><span><i style="background:#4a3426"></i>шоколад</span></div>
+  <div class="box tilt"><h3>Если хочешь в тон</h3><div class="sw"><button type="button" class="swb" aria-pressed="false" data-tip="С чем: бежевый, кремовый, шоколад, золото.|Кому идёт: почти всем, особенно смуглой и тёплой коже, шатенкам и рыжим. Мужчинам — пиджак или свитер."><i style="background:#5e6e24"></i>олива</button><button type="button" class="swb" aria-pressed="false" data-tip="С чем: песочный, серый, коричневый, жемчуг или серебро.|Кому идёт: светлой и холодной коже, блондинкам. Мягкий цвет, на фото выглядит нежно."><i style="background:#9aa57a"></i>шалфей</button><button type="button" class="swb" aria-pressed="false" data-tip="С чем: кремовый, оливковый, шоколад, золото.|Кому идёт: тёплой и оливковой коже, брюнеткам и рыжим. Если кожа очень светлая, носи его подальше от лица: юбкой или пальто."><i style="background:#b8643f"></i>терракота</button><button type="button" class="swb" aria-pressed="false" data-tip="С чем: шоколад, олива, тёмный джинс, золото.|Кому идёт: смуглой коже и тёмным волосам. На светлой коже лучше акцентом: шарф, сумка, серьги."><i style="background:#c99a3a"></i>горчица</button><button type="button" class="swb" aria-pressed="false" data-tip="С чем: со всей палитрой. Акцент — терракота или олива.|Кому идёт: всем. Выбирай тёплый песочный или кэмел, не молочный: молочный — цвет невесты. Добавь контраст: тёмную обувь или яркие серьги."><i style="background:#d9c3a0"></i>бежевый</button><button type="button" class="swb" aria-pressed="false" data-tip="С чем: кремовый, бежевый, терракота, горчица, золото.|Кому идёт: всем, это мягкая замена чёрному. Особенно тёплой коже. Мужчинам — костюм или водолазка."><i style="background:#4a3426"></i>шоколад</button></div>
+    <div class="swtip" id="swtip" aria-live="polite"><p class="swt-hint">Нажми на цвет — подскажем, с чем его сочетать и кому он идёт.</p></div>
     <h4 class="lk-h" id="looks-h">Идеи для вдохновения</h4>
     <ol class="looks" id="looks"><li><picture><source srcset="img/look8.webp" type="image/webp"><img src="img/look8.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Шоколадное платье с запахом до колена и слингбэки · вязаное поло и лоферы</p></li><li><picture><source srcset="img/look1.webp" type="image/webp"><img src="img/look1.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Атласная юбка цвета терракоты и объёмный свитер · бежевая водолазка под коричневый пиджак</p></li><li><picture><source srcset="img/look12.webp" type="image/webp"><img src="img/look12.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Горчичное платье с объёмными рукавами и босоножки на устойчивом каблуке</p></li><li><picture><source srcset="img/look14.webp" type="image/webp"><img src="img/look14.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Оливковый двубортный пиджак, чёрная футболка, тёмные брюки и лоферы</p></li><li><picture><source srcset="img/look10.webp" type="image/webp"><img src="img/look10.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Оливковое платье с кремовым воротничком и мэри-джейн · рубашка-куртка, светлые брюки и кеды</p></li><li><picture><source srcset="img/look2.webp" type="image/webp"><img src="img/look2.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Оливковое платье-комбинация поверх лонгслива · коричневый костюм с вязаным поло</p></li><li><picture><source srcset="img/look16.webp" type="image/webp"><img src="img/look16.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Бархатное платье до колена, плотные колготки и ботильоны</p></li><li><picture><source srcset="img/look13.webp" type="image/webp"><img src="img/look13.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Свитер цвета терракоты поверх белой рубашки, светлые чиносы и кеды</p></li><li><picture><source srcset="img/look4.webp" type="image/webp"><img src="img/look4.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Вязаное платье и тренч, можно с кедами · свитер-поло на молнии</p></li><li><picture><source srcset="img/look11.webp" type="image/webp"><img src="img/look11.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Бархатное платье цвета терракоты, ботильоны и тёплая куртка на плечах</p></li><li><picture><source srcset="img/look15.webp" type="image/webp"><img src="img/look15.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Тёмный костюм, зелёный галстук и челси, если хочется построже</p></li><li><picture><source srcset="img/look5.webp" type="image/webp"><img src="img/look5.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Пыльно-розовое макси · светлый костюм и рубашка в тон</p></li><li><picture><source srcset="img/look3.webp" type="image/webp"><img src="img/look3.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Кремовая блузка и атласная юбка цвета оливы · кардиган и брюки</p></li><li><picture><source srcset="img/look9.webp" type="image/webp"><img src="img/look9.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Плиссированная юбка до колена и свитер · свитер поверх рубашки и джинсы</p></li><li><picture><source srcset="img/look6.webp" type="image/webp"><img src="img/look6.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Вязаное платье и пальто цвета терракоты · бежевый пиджак и водолазка</p></li><li><picture><source srcset="img/look7.webp" type="image/webp"><img src="img/look7.jpg" width="600" height="800" loading="lazy" alt=""></picture><p>Платье-рубашка и лоферы · бомбер, джинсы и белые кеды</p></li></ol>
     <div class="cnav"><button type="button" class="cbtn" id="lprev" aria-label="Назад">‹</button><span id="lcount"></span><button type="button" class="cbtn" id="lnext" aria-label="Дальше">›</button></div>
@@ -1471,6 +1481,21 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   document.getElementById("lnext").addEventListener("click", function(){ go(1); });
   list.addEventListener("scroll", function(){ clearTimeout(list._t); list._t = setTimeout(upd, 80); }, { passive: true });
   upd();
+})();
+(function(){
+  // Colour tips
+  var box = document.getElementById("swtip"); if (!box) return;
+  var bs = document.querySelectorAll(".swb");
+  bs.forEach(function(b){ b.addEventListener("click", function(){
+    bs.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    box.innerHTML = "";
+    b.getAttribute("data-tip").split("|").forEach(function(part){
+      var p = document.createElement("p"), i = part.indexOf(":");
+      if (i > 0) { var bb = document.createElement("b"); bb.textContent = part.slice(0, i + 1); p.appendChild(bb); p.appendChild(document.createTextNode(part.slice(i + 1))); }
+      else p.textContent = part;
+      box.appendChild(p);
+    });
+  }); });
 })();
 (function(){
   // Offline / online mode
