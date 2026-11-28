@@ -666,6 +666,9 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .wcards li::before{content:"“";position:absolute;top:4px;left:12px;font:700 34px/1 Georgia,serif;color:var(--olive);opacity:.25}
 .wcards li p{margin:0;max-height:260px;overflow:auto}
 #wishes::before{margin-bottom:14px!important}
+/* v41: compact chips */
+.dcol .chips{display:flex!important;flex-direction:row!important;flex-wrap:wrap;gap:8px!important;padding:0;margin:6px 0 14px}
+.dcol .chips li{display:inline-flex;align-items:center;gap:4px;width:auto!important;font-size:14px!important;line-height:1.2!important;padding:7px 12px!important;border-radius:999px;white-space:nowrap}
 /* v38: colour tips */
 .sw .swb{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--muted);font:inherit;font-size:14px}
 .sw .swb i{width:40px;height:40px;border-radius:46% 54% 50% 50%/52% 46% 54% 48%;border:1.5px solid var(--ink);transition:transform .2s,box-shadow .2s}
@@ -995,15 +998,15 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   <div class="dc2" id="dc2" data-show="w">
     <div class="dcol dc-w">
       <h3><svg class="ill wob" viewBox="0 0 60 90" aria-hidden="true"><path class="d" d="M24 4 v10 M36 4 v10 M22 14 q8 8 16 0 l 2 26 q12 30 16 46 h-52 q4 -16 16 -46 z M 22 40 h 16"/></svg>Женщинам</h3>
-      <div class="chips-h">Подойдёт</div><ul class="chips yes"><li>Платье или юбка до колена и длиннее</li><li>Закрытые плечи: рукав, жакет или палантин</li><li>Тёплый слой: пальто, тренч или кардиган</li><li>Ботильоны, лоферы, туфли на устойчивом каблуке. Кеды тоже можно</li></ul>
-      <div class="chips-h">Лучше не надо</div><ul class="chips no"><li>Белый и молочный: это цвета невесты</li><li>Брюки и брючный костюм</li><li>Мини и глубокое декольте</li><li>Очень высокие шпильки</li></ul>
-      <p class="dctip">Хупа по еврейской традиции, поэтому на церемонии женщины обычно в платьях и юбках. Платок на голову не нужен: его носят только религиозные замужние женщины.</p>
+      <div class="chips-h">Подойдёт</div><ul class="chips yes"><li>Платье до колена</li><li>Платье миди или макси</li><li>Юбка ниже колена</li><li>Блуза или свитер</li><li>Рукав или жакет</li><li>Палантин на плечи</li><li>Пальто или тренч</li><li>Ботильоны</li><li>Лоферы</li><li>Устойчивый каблук</li><li>Кеды</li></ul>
+      <div class="chips-h">Лучше не надо</div><ul class="chips no"><li>Белый и молочный</li><li>Брюки</li><li>Мини</li><li>Глубокое декольте</li><li>Открытые плечи</li><li>Высокие шпильки</li></ul>
+      <p class="dctip">Белый и молочный — цвета невесты. Хупа по еврейской традиции, поэтому на церемонии женщины обычно в платьях и юбках. Платок на голову не нужен: его носят только религиозные замужние женщины.</p>
       <a class="lk-go" href="#looks-h">Примеры образов</a>
     </div>
     <div class="dcol dc-m">
       <h3><svg class="ill wob" viewBox="0 0 60 90" aria-hidden="true"><path class="d" d="M18 6 l 12 4 l 12 -4 l 10 6 l 2 34 h -8 l -2 -22 v 26 h -28 v -26 l -2 22 h -8 l 2 -34 z M 30 10 l -6 14 l 6 8 l 6 -8 z M 18 50 l 2 36 h 8 l 2 -30 l 2 30 h 8 l 2 -36"/></svg>Мужчинам</h3>
-      <div class="chips-h">Подойдёт</div><ul class="chips yes"><li>Костюм, с галстуком или без</li><li>Пиджак с брюками или тёмными джинсами</li><li>Свитер, водолазка или вязаное поло</li><li>Лоферы, ботинки или чистые кеды</li><li>Кипа на хупе (выдадим)</li></ul>
-      <div class="chips-h">Лучше не надо</div><ul class="chips no"><li>Шорты и спортивный костюм</li><li>Футболка без пиджака</li><li>Шлёпанцы и сандалии</li></ul>
+      <div class="chips-h">Подойдёт</div><ul class="chips yes"><li>Костюм</li><li>Галстук по желанию</li><li>Пиджак</li><li>Брюки</li><li>Тёмные джинсы</li><li>Рубашка</li><li>Свитер</li><li>Водолазка</li><li>Вязаное поло</li><li>Лоферы</li><li>Ботинки</li><li>Чистые кеды</li><li>Кипа на хупе (выдадим)</li></ul>
+      <div class="chips-h">Лучше не надо</div><ul class="chips no"><li>Шорты</li><li>Спортивный костюм</li><li>Футболка без пиджака</li><li>Шлёпанцы</li><li>Сандалии</li></ul>
       <p class="dctip">Кипа — знак уважения к Богу и к традиции. На хупе её надевают все мужчины, даже нерелигиозные. Своей нет — выдадим у входа.</p>
       <a class="lk-go" href="#looks-h">Примеры образов</a>
     </div>

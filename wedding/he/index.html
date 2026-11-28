@@ -666,6 +666,9 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .wcards li::before{content:"“";position:absolute;top:4px;left:12px;font:700 34px/1 Georgia,serif;color:var(--olive);opacity:.25}
 .wcards li p{margin:0;max-height:260px;overflow:auto}
 #wishes::before{margin-bottom:14px!important}
+/* v41: compact chips */
+.dcol .chips{display:flex!important;flex-direction:row!important;flex-wrap:wrap;gap:8px!important;padding:0;margin:6px 0 14px}
+.dcol .chips li{display:inline-flex;align-items:center;gap:4px;width:auto!important;font-size:14px!important;line-height:1.2!important;padding:7px 12px!important;border-radius:999px;white-space:nowrap}
 /* v38: colour tips */
 .sw .swb{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--muted);font:inherit;font-size:14px}
 .sw .swb i{width:40px;height:40px;border-radius:46% 54% 50% 50%/52% 46% 54% 48%;border:1.5px solid var(--ink);transition:transform .2s,box-shadow .2s}
@@ -995,15 +998,15 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   <div class="dc2" id="dc2" data-show="w">
     <div class="dcol dc-w">
       <h3><svg class="ill wob" viewBox="0 0 60 90" aria-hidden="true"><path class="d" d="M24 4 v10 M36 4 v10 M22 14 q8 8 16 0 l 2 26 q12 30 16 46 h-52 q4 -16 16 -46 z M 22 40 h 16"/></svg>לנשים</h3>
-      <div class="chips-h">מתאים</div><ul class="chips yes"><li>שמלה או חצאית, עד הברך או ארוכה יותר</li><li>כתפיים מכוסות: שרוול, ז׳קט או צעיף</li><li>שכבה חמה: מעיל, טרנץ׳ או קרדיגן</li><li>מגפונים, לופרים, עקב יציב. גם סניקרס זה בסדר</li></ul>
-      <div class="chips-h">עדיף שלא</div><ul class="chips no"><li>לבן ושמנת: אלה הצבעים של הכלה</li><li>מכנסיים וחליפת מכנסיים</li><li>מיני ומחשוף עמוק</li><li>עקבים גבוהים מאוד</li></ul>
-      <p class="dctip">החופה לפי המסורת היהודית, ולכן נשים לרוב בשמלה או בחצאית בטקס. לא צריך לכסות את הראש: רק נשים דתיות נשואות מכסות.</p>
+      <div class="chips-h">מתאים</div><ul class="chips yes"><li>שמלה עד הברך</li><li>שמלת מידי או מקסי</li><li>חצאית מתחת לברך</li><li>חולצה או סוודר</li><li>שרוול או ז׳קט</li><li>צעיף על הכתפיים</li><li>מעיל או טרנץ׳</li><li>מגפונים</li><li>לופרים</li><li>עקב יציב</li><li>סניקרס</li></ul>
+      <div class="chips-h">עדיף שלא</div><ul class="chips no"><li>לבן ושמנת</li><li>מכנסיים</li><li>מיני</li><li>מחשוף עמוק</li><li>כתפיים חשופות</li><li>עקבים גבוהים</li></ul>
+      <p class="dctip">לבן ושמנת הם הצבעים של הכלה. החופה לפי המסורת היהודית, ולכן נשים לרוב בשמלה או בחצאית בטקס. לא צריך לכסות את הראש: רק נשים דתיות נשואות מכסות.</p>
       <a class="lk-go" href="#looks-h">דוגמאות ללבוש</a>
     </div>
     <div class="dcol dc-m">
       <h3><svg class="ill wob" viewBox="0 0 60 90" aria-hidden="true"><path class="d" d="M18 6 l 12 4 l 12 -4 l 10 6 l 2 34 h -8 l -2 -22 v 26 h -28 v -26 l -2 22 h -8 l 2 -34 z M 30 10 l -6 14 l 6 8 l 6 -8 z M 18 50 l 2 36 h 8 l 2 -30 l 2 30 h 8 l 2 -36"/></svg>לגברים</h3>
-      <div class="chips-h">מתאים</div><ul class="chips yes"><li>חליפה, עם עניבה או בלי</li><li>ז׳קט עם מכנסיים או ג׳ינס כהה</li><li>סוודר, גולף או פולו סרוג</li><li>לופרים, מגפיים או סניקרס נקיים</li><li>כיפה בחופה (נחלק)</li></ul>
-      <div class="chips-h">עדיף שלא</div><ul class="chips no"><li>מכנסיים קצרים ובגדי ספורט</li><li>טישירט בלי ז׳קט</li><li>כפכפים וסנדלים</li></ul>
+      <div class="chips-h">מתאים</div><ul class="chips yes"><li>חליפה</li><li>עניבה לפי הרצון</li><li>ז׳קט</li><li>מכנסיים</li><li>ג׳ינס כהה</li><li>חולצה מכופתרת</li><li>סוודר</li><li>גולף</li><li>פולו סרוג</li><li>לופרים</li><li>מגפיים</li><li>סניקרס נקיים</li><li>כיפה בחופה (נחלק)</li></ul>
+      <div class="chips-h">עדיף שלא</div><ul class="chips no"><li>מכנסיים קצרים</li><li>בגדי ספורט</li><li>טישירט בלי ז׳קט</li><li>כפכפים</li><li>סנדלים</li></ul>
       <p class="dctip">כיפה היא סימן של כבוד לאלוהים ולמסורת. בחופה כל הגברים חובשים כיפה, גם מי שלא דתי. אין לכם? נחלק בכניסה.</p>
       <a class="lk-go" href="#looks-h">דוגמאות ללבוש</a>
     </div>

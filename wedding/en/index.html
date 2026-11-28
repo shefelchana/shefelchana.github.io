@@ -666,6 +666,9 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .wcards li::before{content:"“";position:absolute;top:4px;left:12px;font:700 34px/1 Georgia,serif;color:var(--olive);opacity:.25}
 .wcards li p{margin:0;max-height:260px;overflow:auto}
 #wishes::before{margin-bottom:14px!important}
+/* v41: compact chips */
+.dcol .chips{display:flex!important;flex-direction:row!important;flex-wrap:wrap;gap:8px!important;padding:0;margin:6px 0 14px}
+.dcol .chips li{display:inline-flex;align-items:center;gap:4px;width:auto!important;font-size:14px!important;line-height:1.2!important;padding:7px 12px!important;border-radius:999px;white-space:nowrap}
 /* v38: colour tips */
 .sw .swb{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--muted);font:inherit;font-size:14px}
 .sw .swb i{width:40px;height:40px;border-radius:46% 54% 50% 50%/52% 46% 54% 48%;border:1.5px solid var(--ink);transition:transform .2s,box-shadow .2s}
@@ -995,15 +998,15 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   <div class="dc2" id="dc2" data-show="w">
     <div class="dcol dc-w">
       <h3><svg class="ill wob" viewBox="0 0 60 90" aria-hidden="true"><path class="d" d="M24 4 v10 M36 4 v10 M22 14 q8 8 16 0 l 2 26 q12 30 16 46 h-52 q4 -16 16 -46 z M 22 40 h 16"/></svg>Women</h3>
-      <div class="chips-h">Good to wear</div><ul class="chips yes"><li>A dress or skirt, knee-length or longer</li><li>Covered shoulders: sleeves, a jacket or a wrap</li><li>A warm layer: coat, trench or cardigan</li><li>Ankle boots, loafers, block heels. Sneakers are fine too</li></ul>
-      <div class="chips-h">Better not</div><ul class="chips no"><li>White and ivory: those are the bride's colours</li><li>Trousers and trouser suits</li><li>Mini skirts and deep necklines</li><li>Very high stilettos</li></ul>
-      <p class="dctip">The chuppah follows Jewish tradition, so women usually wear dresses or skirts at the ceremony. No need to cover your head: only religious married women do.</p>
+      <div class="chips-h">Good to wear</div><ul class="chips yes"><li>Knee-length dress</li><li>Midi or maxi dress</li><li>Skirt below the knee</li><li>Blouse or sweater</li><li>Sleeves or a jacket</li><li>Wrap for the shoulders</li><li>Coat or trench</li><li>Ankle boots</li><li>Loafers</li><li>Block heels</li><li>Sneakers</li></ul>
+      <div class="chips-h">Better not</div><ul class="chips no"><li>White and ivory</li><li>Trousers</li><li>Mini skirts</li><li>Deep necklines</li><li>Bare shoulders</li><li>High stilettos</li></ul>
+      <p class="dctip">White and ivory are the bride's colours. The chuppah follows Jewish tradition, so women usually wear dresses or skirts at the ceremony. No need to cover your head: only religious married women do.</p>
       <a class="lk-go" href="#looks-h">Outfit examples</a>
     </div>
     <div class="dcol dc-m">
       <h3><svg class="ill wob" viewBox="0 0 60 90" aria-hidden="true"><path class="d" d="M18 6 l 12 4 l 12 -4 l 10 6 l 2 34 h -8 l -2 -22 v 26 h -28 v -26 l -2 22 h -8 l 2 -34 z M 30 10 l -6 14 l 6 8 l 6 -8 z M 18 50 l 2 36 h 8 l 2 -30 l 2 30 h 8 l 2 -36"/></svg>Men</h3>
-      <div class="chips-h">Good to wear</div><ul class="chips yes"><li>A suit, with or without a tie</li><li>A blazer with trousers or dark jeans</li><li>A sweater, turtleneck or knit polo</li><li>Loafers, boots or clean sneakers</li><li>Kippah at the chuppah (we'll have them)</li></ul>
-      <div class="chips-h">Better not</div><ul class="chips no"><li>Shorts and tracksuits</li><li>A plain T-shirt without a blazer</li><li>Flip-flops and sandals</li></ul>
+      <div class="chips-h">Good to wear</div><ul class="chips yes"><li>Suit</li><li>Tie optional</li><li>Blazer</li><li>Trousers</li><li>Dark jeans</li><li>Shirt</li><li>Sweater</li><li>Turtleneck</li><li>Knit polo</li><li>Loafers</li><li>Boots</li><li>Clean sneakers</li><li>Kippah at the chuppah (we'll have them)</li></ul>
+      <div class="chips-h">Better not</div><ul class="chips no"><li>Shorts</li><li>Tracksuit</li><li>T-shirt without a blazer</li><li>Flip-flops</li><li>Sandals</li></ul>
       <p class="dctip">A kippah is a sign of respect for God and for tradition. At the chuppah all men wear one, even if they're not religious. No kippah? We'll hand them out at the entrance.</p>
       <a class="lk-go" href="#looks-h">Outfit examples</a>
     </div>
