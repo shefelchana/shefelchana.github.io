@@ -640,6 +640,7 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .ct-s{margin:12px 0 0!important;font-size:14px;opacity:.75}
 
 /* v31: magic ball */
+.bseg{margin:12px auto 0}
 .ballq{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
 .ballq .chip{cursor:pointer;font-size:15px}
 .spark{position:absolute;left:50%;top:47%;width:var(--s,8px);height:var(--s,8px);margin:calc(var(--s,8px)/-2);pointer-events:none;background:var(--c,#e3a33f);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:spark .9s ease-out forwards}
@@ -647,7 +648,8 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 @keyframes spark{0%{transform:translate(0,0) scale(.4) rotate(0);opacity:1}70%{opacity:1}100%{transform:translate(var(--x),var(--y)) scale(1) rotate(160deg);opacity:0}}
 @media (prefers-reduced-motion:reduce){.spark{display:none}}
 #ball{text-align:center}
-#ball .ball+p{margin-top:0}
+#ball .ball+p{margin-top:-18px}
+#ball .ball+p .btn{margin-top:0}
 .ball{position:relative;width:min(300px,78vw);aspect-ratio:495/507;height:auto;overflow:visible;border:0;padding:0;margin:6px auto 10px;display:block;background:none;cursor:pointer}
 .ball picture,.ball img{display:block;width:100%;height:100%}
 .ball .b-tri{position:absolute;left:50%;top:46.9%;width:41%;height:40%;transform:translate(-50%,-50%);display:grid;place-items:center;transition:opacity .35s}
@@ -951,9 +953,9 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 
 <section id="ball"><div class="pad">
   <h2>Wedding magic ball</h2>
-  <p class="lead2">Can't decide whether to come, what to wear, what to pick? Ask a question and shake the ball.</p>
-  <div class="ballq" id="ballq" data-q="Should I go?|What should I wear?|Heels or sneakers?"></div>
-  <button type="button" class="ball" id="ball8" data-any="Yes!|Definitely yes|More yes than no|No doubt|The stars say yes|Trust yourself|Follow your heart|Pick what makes you happy|Now is the time|Try it, you won&#x27;t regret it|The first thing that came to mind|Mazal tov! It&#x27;s a sign|Maybe the other one?|Not yet, but soon|Not now, dance first" aria-live="polite"><picture><source srcset="../img/g_ball.webp" type="image/webp"><img src="../img/g_ball.png" width="495" height="507" loading="lazy" alt=""></picture><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></button>
+  <p class="lead2">Ask a yes-or-no question, or pick between two options. Then shake the ball.</p>
+  <div class="seg bseg" role="group"><button type="button" class="sbtn" data-bk="any" aria-pressed="true">Yes or no</button><button type="button" class="sbtn" data-bk="or" aria-pressed="false">This or that</button></div>
+  <button type="button" class="ball" id="ball8" data-any="Yes!|Definitely yes|Probably yes|No doubt|The stars say yes|Yes, and then dance|Your heart says yes|Not yet, but soon|Probably not|Not today" data-or="The first!|The second!|Definitely the first|The second, of course|The stars say the first|The stars say the second|The first, don&#x27;t overthink|The second, don&#x27;t overthink|Take both" aria-live="polite"><picture><source srcset="../img/g_ball.webp" type="image/webp"><img src="../img/g_ball.png" width="495" height="507" loading="lazy" alt=""></picture><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></button>
   <p><button type="button" class="btn" id="ballbtn">Shake</button></p>
 </div></section>
 
@@ -1411,9 +1413,13 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
     do { a = ans[Math.floor(Math.random() * ans.length)]; } while (a === last && ans.length > 1); last = a;
     setTimeout(function(){ txt.textContent = a; b.classList.remove("shake"); busy = false; }, 700);
   }
-  b.addEventListener("click", function(){ go(); }); document.getElementById("ballbtn").addEventListener("click", function(){ go(); });
-  var qb = document.getElementById("ballq"), kinds = ["go", "wear", "shoe"];
-  if (qb) qb.getAttribute("data-q").split("|").forEach(function(q, i){ var c = document.createElement("button"); c.type = "button"; c.className = "chip"; c.textContent = q; c.addEventListener("click", function(){ go(); }); qb.appendChild(c); });
+  b.addEventListener("click", function(){ go(kind); }); document.getElementById("ballbtn").addEventListener("click", function(){ go(kind); });
+  var kind = "any";
+  document.querySelectorAll(".sbtn[data-bk]").forEach(function(x){ x.addEventListener("click", function(){
+    kind = x.getAttribute("data-bk");
+    document.querySelectorAll(".sbtn[data-bk]").forEach(function(y){ y.setAttribute("aria-pressed", y === x ? "true" : "false"); });
+    txt.textContent = "?";
+  }); });
 })();
 (function(){
   // Wishes gallery

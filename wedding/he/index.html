@@ -640,6 +640,7 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .ct-s{margin:12px 0 0!important;font-size:14px;opacity:.75}
 
 /* v31: magic ball */
+.bseg{margin:12px auto 0}
 .ballq{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
 .ballq .chip{cursor:pointer;font-size:15px}
 .spark{position:absolute;left:50%;top:47%;width:var(--s,8px);height:var(--s,8px);margin:calc(var(--s,8px)/-2);pointer-events:none;background:var(--c,#e3a33f);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:spark .9s ease-out forwards}
@@ -647,7 +648,8 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 @keyframes spark{0%{transform:translate(0,0) scale(.4) rotate(0);opacity:1}70%{opacity:1}100%{transform:translate(var(--x),var(--y)) scale(1) rotate(160deg);opacity:0}}
 @media (prefers-reduced-motion:reduce){.spark{display:none}}
 #ball{text-align:center}
-#ball .ball+p{margin-top:0}
+#ball .ball+p{margin-top:-18px}
+#ball .ball+p .btn{margin-top:0}
 .ball{position:relative;width:min(300px,78vw);aspect-ratio:495/507;height:auto;overflow:visible;border:0;padding:0;margin:6px auto 10px;display:block;background:none;cursor:pointer}
 .ball picture,.ball img{display:block;width:100%;height:100%}
 .ball .b-tri{position:absolute;left:50%;top:46.9%;width:41%;height:40%;transform:translate(-50%,-50%);display:grid;place-items:center;transition:opacity .35s}
@@ -951,9 +953,9 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 
 <section id="ball"><div class="pad">
   <h2>כדור הקסם של החתונה</h2>
-  <p class="lead2">לא מחליטים אם לבוא, מה ללבוש, מה לבחור? שאלו שאלה ונערו את הכדור.</p>
-  <div class="ballq" id="ballq" data-q="ללכת או לא?|מה ללבוש?|עקבים או סניקרס?"></div>
-  <button type="button" class="ball" id="ball8" data-any="כן!|בטח שכן|יותר כן מלא|בלי ספק|הכוכבים אומרים כן|תסמכו על עצמכם|תקשיבו ללב|תבחרו במה שמשמח|זה הזמן|תנסו, לא תתחרטו|הדבר הראשון שעלה בראש|מזל טוב! זה סימן|אולי דווקא את השני?|עוד לא, אבל בקרוב|לא עכשיו, קודם לרקוד" aria-live="polite"><picture><source srcset="../img/g_ball.webp" type="image/webp"><img src="../img/g_ball.png" width="495" height="507" loading="lazy" alt=""></picture><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></button>
+  <p class="lead2">שאלו שאלה של כן או לא, או בחרו בין שתי אפשרויות. ואז נערו את הכדור.</p>
+  <div class="seg bseg" role="group"><button type="button" class="sbtn" data-bk="any" aria-pressed="true">כן או לא</button><button type="button" class="sbtn" data-bk="or" aria-pressed="false">זה או זה</button></div>
+  <button type="button" class="ball" id="ball8" data-any="כן!|בטח שכן|כנראה שכן|בלי ספק|הכוכבים אומרים כן|כן, ואחר כך לרקוד|הלב אומר כן|עוד לא, אבל בקרוב|כנראה שלא|לא היום" data-or="הראשון!|השני!|בטח הראשון|ברור שהשני|הכוכבים בעד הראשון|הכוכבים בעד השני|הראשון, בלי לחשוב|השני, בלי לחשוב|קחו את שניהם" aria-live="polite"><picture><source srcset="../img/g_ball.webp" type="image/webp"><img src="../img/g_ball.png" width="495" height="507" loading="lazy" alt=""></picture><span class="b-tri"><span class="b-txt" id="balltxt">?</span></span></button>
   <p><button type="button" class="btn" id="ballbtn">לנער</button></p>
 </div></section>
 
@@ -1411,9 +1413,13 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
     do { a = ans[Math.floor(Math.random() * ans.length)]; } while (a === last && ans.length > 1); last = a;
     setTimeout(function(){ txt.textContent = a; b.classList.remove("shake"); busy = false; }, 700);
   }
-  b.addEventListener("click", function(){ go(); }); document.getElementById("ballbtn").addEventListener("click", function(){ go(); });
-  var qb = document.getElementById("ballq"), kinds = ["go", "wear", "shoe"];
-  if (qb) qb.getAttribute("data-q").split("|").forEach(function(q, i){ var c = document.createElement("button"); c.type = "button"; c.className = "chip"; c.textContent = q; c.addEventListener("click", function(){ go(); }); qb.appendChild(c); });
+  b.addEventListener("click", function(){ go(kind); }); document.getElementById("ballbtn").addEventListener("click", function(){ go(kind); });
+  var kind = "any";
+  document.querySelectorAll(".sbtn[data-bk]").forEach(function(x){ x.addEventListener("click", function(){
+    kind = x.getAttribute("data-bk");
+    document.querySelectorAll(".sbtn[data-bk]").forEach(function(y){ y.setAttribute("aria-pressed", y === x ? "true" : "false"); });
+    txt.textContent = "?";
+  }); });
 })();
 (function(){
   // Wishes gallery
