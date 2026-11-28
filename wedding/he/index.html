@@ -197,9 +197,9 @@ button.tap:focus-visible,.lightsbtn:focus-visible{outline:3px solid var(--lamp);
 .ticks{list-style:none;padding:0;gap:6px;font-size:.875rem;line-height:1.35}
 .wx{display:flex;gap:12px;align-items:center;border:1.5px dashed var(--ink);border-radius:12px;padding:12px 14px}
 .wx b{font-weight:500}
-.env-wrap{position:fixed;inset:0;z-index:70;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#55652b;transition:opacity .7s ease}
+.env-wrap{position:fixed;inset:0;z-index:70;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#5e5718;transition:opacity .7s ease}
 .env-wrap.gone{opacity:0;pointer-events:none}
-.env{position:relative;width:min(320px,82vw);aspect-ratio:3/2;margin-top:80px}
+.env{position:relative;width:min(360px,88vw);aspect-ratio:900/510;margin-top:80px}
 .env-back,.env-front,.env-flap{position:absolute;left:0;right:0;border-radius:6px}
 .env-back{inset:0;background:#d9c49a;box-shadow:0 20px 50px rgba(0,0,0,.35)}
 .env-card{position:absolute;left:7%;right:7%;top:6%;height:88%;background:#fffaf0;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;transition:transform .9s cubic-bezier(.2,.8,.3,1) .45s;z-index:1}
@@ -213,6 +213,12 @@ button.tap:focus-visible,.lightsbtn:focus-visible{outline:3px solid var(--lamp);
 .env-tap{font-size:.875rem;color:#e9dfc4}
 .env.open .env-flap{transform:rotateX(180deg);z-index:0}
 .env.open .seal{opacity:0;transform:scale(.4)}
+.env-img{position:absolute;inset:0;z-index:4;border-radius:4px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);transition:opacity .35s ease}
+.env-img img{display:block;width:100%;height:100%}
+.env.open .env-img{opacity:0;pointer-events:none}
+.env .seal{left:49.9%;top:52.2%;width:23%;height:auto;aspect-ratio:1;margin:0;transform:translate(-50%,-50%);z-index:5;background:none;box-shadow:none;color:#f6dcc0;text-shadow:0 1px 1px rgba(80,25,10,.6);font-size:1.15rem!important;animation:sealglow 2.4s ease-in-out infinite}
+.env.open .seal{opacity:0;transform:translate(-50%,-50%) scale(.4)}
+@keyframes sealglow{0%,100%{filter:drop-shadow(0 0 0 rgba(255,220,150,0))}50%{filter:drop-shadow(0 0 10px rgba(255,220,150,.75))}}
 .env.open .env-card{transform:translateY(-62%)}
 .scratch{position:relative;display:inline-block;margin-top:4px}
 .scratch .dt{margin:0!important;padding:2px 14px}
@@ -879,6 +885,7 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
     <div class="env-card"><span class="ec-k">הזמנה לחתונה</span><span class="ec-n">חנה &amp; אלכס</span></div>
     <div class="env-front"></div>
     <div class="env-flap"></div>
+    <picture class="env-img"><source srcset="../img/env.webp" type="image/webp"><img src="../img/env.jpg" width="900" height="510" alt=""></picture>
     <button class="seal" type="button" id="seal" aria-label="לחצו על החותם כדי לפתוח">ח&א</button>
   </div>
   <p class="env-to" id="envto" data-t="{name}, יש לך מכתב">יש לך מכתב</p>
