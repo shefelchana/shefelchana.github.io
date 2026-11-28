@@ -703,16 +703,20 @@ html[dir=rtl] .env-langs{left:auto;right:16px}
 .trads .tr-n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--olive);color:#fffaf0;font:600 14px/1 var(--body)}
 .trads h3{margin:12px 0 6px;font-size:1.15rem}
 .trads p{margin:0;font-size:.95rem;line-height:1.5;color:var(--muted)}
-/* v42: checklist + friday cal */
-.ck{list-style:none;padding:0;margin:14px auto 0;max-width:420px;display:flex;flex-direction:column;gap:8px;text-align:start}
-.ck label{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;background:#fffaf0;border:1px solid rgba(111,127,46,.22);cursor:pointer}
-.ck input{position:absolute;opacity:0;pointer-events:none}
-.ck-box{flex:none;width:24px;height:24px;border-radius:8px;border:1.5px solid var(--olive);display:grid;place-items:center;transition:background .2s}
-.ck input:checked+.ck-box{background:var(--olive)}
-.ck input:checked+.ck-box::after{content:"";width:6px;height:11px;border:solid #fffaf0;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
-.ck-t{display:flex;flex-direction:column;font-size:15px;line-height:1.3;color:var(--ink)}
-.ck-t small{font-size:13px;color:var(--muted)}
-.ck input:checked~.ck-t{opacity:.55;text-decoration:line-through}
+/* v43: compact checklist */
+.ckbar{display:flex;align-items:center;gap:10px;max-width:360px;margin:12px auto 0;font-size:14px;color:var(--muted)}
+.ckbar .ckt{flex:1;display:block;height:6px;border-radius:9px;background:rgba(111,127,46,.18);overflow:hidden}
+#ckfill{display:block;height:100%;width:0;background:var(--olive);transition:width .3s}
+.ck{list-style:none;padding:0;margin:14px auto 0;max-width:440px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+#pack .ck{flex-direction:row!important;align-items:center!important}
+#pack .ckbar{justify-content:center}
+#pack .ckt{flex:1 1 auto!important;min-width:120px;max-width:220px}
+#pack .ck li{display:block!important;width:auto!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+#pack .ck li::before{content:none!important}
+.ckb{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--olive);background:#fffaf0;color:var(--ink);font:500 14px/1.2 var(--body);cursor:pointer;transition:background .2s,color .2s}
+.ckb::before{content:"";width:14px;height:14px;border-radius:50%;border:1.5px solid var(--olive);flex:none}
+.ckb[aria-pressed="true"]{background:var(--olive);color:#fffaf0}
+.ckb[aria-pressed="true"]::before{content:"✓";border-color:#fffaf0;color:#fffaf0;font-size:10px;line-height:12px;text-align:center}
 .ck-done{margin:14px 0 0;font-weight:600;color:var(--olive)}
 .fr-cal{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .fr-cal .chip{font-size:13px!important;padding:6px 11px!important}
@@ -1063,8 +1067,9 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
 
 <section id="pack" class="only-off"><div class="pad">
   <h2>What to bring</h2>
-  <p class="lead2">Tick things off, your phone will remember.</p>
-  <ul class="ck" id="ck"><li><label><input type="checkbox" data-k="1"><span class="ck-box"></span><span class="ck-t">Warm sweater or coat<small>around 10°C in the evening</small></span></label></li><li><label><input type="checkbox" data-k="2"><span class="ck-box"></span><span class="ck-t">Umbrella<small>it may rain in January</small></span></label></li><li><label><input type="checkbox" data-k="3"><span class="ck-box"></span><span class="ck-t">Wrap for your shoulders<small>for the chuppah if your dress is open</small></span></label></li><li><label><input type="checkbox" data-k="4"><span class="ck-box"></span><span class="ck-t">Comfy shoes to change into<small>so you can dance till the end</small></span></label></li><li><label><input type="checkbox" data-k="5"><span class="ck-box"></span><span class="ck-t">Envelope or gift</span></label></li><li><label><input type="checkbox" data-k="6"><span class="ck-box"></span><span class="ck-t">Charged phone<small>for the shared photo album</small></span></label></li><li><label><input type="checkbox" data-k="7"><span class="ck-box"></span><span class="ck-t">Your own kippah, if you have one<small>if not, we'll have some</small></span></label></li><li><label><input type="checkbox" data-k="8"><span class="ck-box"></span><span class="ck-t">A good mood<small>a must!</small></span></label></li></ul>
+  <p class="lead2">Evenings are around 10°C and it may rain. Tap what you've already packed.</p>
+  <div class="ckbar"><span id="ckn">0</span> of 8<span class="ckt"><span id="ckfill"></span></span></div>
+  <ul class="ck" id="ck"><li><button type="button" class="ckb" data-k="1" aria-pressed="false">Warm layer</button></li><li><button type="button" class="ckb" data-k="2" aria-pressed="false">Umbrella</button></li><li><button type="button" class="ckb" data-k="3" aria-pressed="false">Wrap for the chuppah</button></li><li><button type="button" class="ckb" data-k="4" aria-pressed="false">Spare shoes</button></li><li><button type="button" class="ckb" data-k="5" aria-pressed="false">Envelope or gift</button></li><li><button type="button" class="ckb" data-k="6" aria-pressed="false">Charged phone</button></li><li><button type="button" class="ckb" data-k="7" aria-pressed="false">Your kippah</button></li><li><button type="button" class="ckb" data-k="8" aria-pressed="false">Good mood</button></li></ul>
   <p class="ck-done" id="ckdone" hidden>All packed, see you there!</p>
 </div></section>
 
@@ -1548,11 +1553,11 @@ html:not([lang=he]) .env-to{font-size:1.5rem!important}
   var list = document.getElementById("ck"); if (!list) return;
   var KEY = "wedding-pack", st = {};
   try { st = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
-  var boxes = list.querySelectorAll("input"), done = document.getElementById("ckdone");
-  function upd(){ var all = true; boxes.forEach(function(b){ if (!b.checked) all = false; }); done.hidden = !all; }
-  boxes.forEach(function(b){
-    b.checked = !!st[b.getAttribute("data-k")];
-    b.addEventListener("change", function(){ st[b.getAttribute("data-k")] = b.checked; try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} upd(); });
+  var bs = list.querySelectorAll(".ckb"), done = document.getElementById("ckdone"), n = document.getElementById("ckn"), fill = document.getElementById("ckfill");
+  function upd(){ var c = 0; bs.forEach(function(b){ if (b.getAttribute("aria-pressed") === "true") c++; }); n.textContent = c; fill.style.width = (c / bs.length * 100) + "%"; done.hidden = c < bs.length; }
+  bs.forEach(function(b){
+    var k = b.getAttribute("data-k"); b.setAttribute("aria-pressed", st[k] ? "true" : "false");
+    b.addEventListener("click", function(){ var on = b.getAttribute("aria-pressed") !== "true"; b.setAttribute("aria-pressed", on ? "true" : "false"); st[k] = on; try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} upd(); });
   });
   upd();
 })();
